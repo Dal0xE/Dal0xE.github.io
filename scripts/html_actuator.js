@@ -7,13 +7,15 @@ function HTMLActuator() {
 
   this.score = 0;
 }
-
+//Takes an already updated grid and updates the visible version on the doc.
 HTMLActuator.prototype.actuate = function (grid, metadata) {
   var self = this;
 
+  //Clear the tile container
   window.requestAnimationFrame(function () {
     self.clearContainer(self.tileContainer);
 
+    //Works through the updated grid and does the actual updating
     grid.cells.forEach(function (column) {
       column.forEach(function (cell) {
         if (cell) {
