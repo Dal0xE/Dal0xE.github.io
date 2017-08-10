@@ -31,18 +31,7 @@
     <link href="https://fonts.googleapis.com/css?family=Ubuntu:700" rel="stylesheet">
   </head>
   <body>
-    <br/>
-    <br/>
-    <center><h1 style="font-family: 'Ubuntu', sans-serif;color:#FFFFFF;background:#2aabb7;height:70px;width:230px;font-size:60px;border-radius:25px;">Music</h1></center>
-    <center>
-    <a style="width:95%;font-family: 'Ubuntu', sans-serif;color:#2aabb7;font-size:25px;border-bottom:solid;border-top:solid;" onclick="play('/Troye%20Sivan%20-%20FOOLS%20(Blue%20Neighbourhood%20Part%2023).mp3');">Long Gone</a>
-      <br></br>
-      <br/>
-    <div id="mySidenav" class="sidenav">
-  <a id="play" onclick="continue();">Play</a>
-  <a id="pause" onclick="pause();">Pause</a>
-</div>
-    <script>
+      <script>
       var song
       var play = function(svar) {
     		song = new Audio(svar);
@@ -51,10 +40,21 @@
       var pause = function() {
         song.pause();
       }
-      var continue = function() {
+      var cont = function() {
         song.play();
       }
     </script>
+    <br/>
+    <br/>
+    <center><h1 style="font-family: 'Ubuntu', sans-serif;color:#FFFFFF;background:#2aabb7;height:70px;width:230px;font-size:60px;border-radius:25px;">Music</h1></center>
+    <center>
+    <a style="width:95%;font-family: 'Ubuntu', sans-serif;color:#2aabb7;font-size:25px;border-bottom:solid;border-top:solid;" onclick="play('/Troye%20Sivan%20-%20FOOLS%20(Blue%20Neighbourhood%20Part%2023).mp3');">Long Gone</a>
+      <br></br>
+      <br/>
+    <div id="mySidenav" class="sidenav">
+  <a id="play" onclick="cont();">Play</a>
+  <a id="pause" onclick="pause();">Pause</a>
+      </div>
   </head>
 </html>
         	
