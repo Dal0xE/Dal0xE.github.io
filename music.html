@@ -62,7 +62,8 @@
       }
       var pause = function() {
         song.pause();
-      } function shuffleArray(array) {
+      }
+      function shuffleArray(array) {
         for (var i = array.length - 1; i > 0; i--) {
             var j = Math.floor(Math.random() * (i + 1));
             var temp = array[i];
@@ -73,11 +74,14 @@
       }
       var cont = function() {
         song.play();
-      } var setPlaylist = function(willPlay) {
+      }
+      var setPlaylist = function(willPlay) {
           playlist.splice(playlist.indexOf(willPlay, 1));
-      } var shuffle = function() {
+      }
+      var shuffle = function() {
           playlist = shuffleArray(playlist);
-      } var skip = function() {
+      }
+      var skip = function() {
           song.pause();
           play(playlist[next]);
           song.play();
@@ -108,6 +112,7 @@
   <a id="play" onclick="cont();">Play</a>
   <a id="pause" onclick="pause();">Pause</a>
         <a id="shuffle" onclick="shuffle();">Shuffle</a>
+        <a id="skip" onclick="skip();">Skip</a>
       </div>
   </head>
 </html>
