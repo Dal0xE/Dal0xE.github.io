@@ -33,9 +33,20 @@
   <body>
       <script>
       var song
+      var playlist = ['/weight_in_gold.mp3', '/Clean%20Bandit%20-%20Rockabye%20ft.%20Sean%20Paul%20&%20Anne-Marie%20Official%20Video.mp3', '/Troye%20Sivan%20-%20FOOLS%20(Blue%20Neighbourhood%20Part%2023).mp3'];
+      var next = 0;
       var play = function(svar) {
     		song = new Audio(svar);
         	song.play();
+            song.addEventListener("ended", function() {
+                song.pause();
+                play(playlist[next]);
+                if (next === 2) {
+                    next = 0;
+                } else {
+                    next += 1;
+                }
+            });
       }
       var pause = function() {
         song.pause();
