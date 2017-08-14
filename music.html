@@ -76,7 +76,7 @@
         song.play();
       }
       var setPlaylist = function(willPlay) {
-          playlist.splice(playlist.indexOf(willPlay, 1));
+          playlist = playlist.splice(playlist.indexOf(willPlay, 1));
       }
       var shuffle = function() {
           playlist = shuffleArray(playlist);
