@@ -37,10 +37,12 @@
       var next = 0;
       var play = function(svar) {
     		song = new Audio(svar);
+            setPlaylist(svar);
         	song.play();
             song.addEventListener("ended", function() {
                 song.pause();
                 play(playlist[next]);
+                song.play();
                 if (next === 2) {
                     next = 0;
                 } else {
@@ -53,7 +55,8 @@
       }
       var cont = function() {
         song.play();
-      }
+      } var setPlaylist = function(willPlay) {
+          playlist.splice(playlist.indexOf(willPlay, 1));
     </script>
     <br/>
     <br/>
