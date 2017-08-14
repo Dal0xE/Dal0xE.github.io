@@ -51,13 +51,7 @@
         	song.play();
             song.addEventListener("ended", function() {
                 song.pause();
-                play(playlist[next]);
-                song.play();
-                if (next === 2) {
-                    next = 0;
-                } else {
-                    next += 1;
-                }
+                skip();
             });
       }
       var pause = function() {
@@ -76,7 +70,7 @@
         song.play();
       }
       var setPlaylist = function(willPlay) {
-          playlist = playlist.splice(playlist.indexOf(willPlay, 1));
+          playlist = playlist.splice(playlist.indexOf(willPlay), 1);
       }
       var shuffle = function() {
           playlist = shuffleArray(playlist);
