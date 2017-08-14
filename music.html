@@ -33,7 +33,7 @@
   <body>
       <script>
       var song
-      var playlist = ['/weight_in_gold.mp3', '/Clean%20Bandit%20-%20Rockabye%20ft.%20Sean%20Paul%20&%20Anne-Marie%20Official%20Video.mp3', '/Troye%20Sivan%20-%20FOOLS%20(Blue%20Neighbourhood%20Part%2023).mp3'];
+      var playlist = ['/weight_in_gold.mp3', '/Clean%20Bandit%20-%20Rockabye%20ft.%20Sean%20Paul%20&%20Anne-Marie%20Official%20Video.mp3', '/Troye%20Sivan%20-%20FOOLS%20(Blue%20Neighbourhood%20Part%2023).mp3', '/attention.mp3'];
       var next = 0;
       var play = function(svar) {
     		song = new Audio(svar);
@@ -52,11 +52,30 @@
       }
       var pause = function() {
         song.pause();
+      } function shuffleArray(array) {
+        for (var i = array.length - 1; i > 0; i--) {
+            var j = Math.floor(Math.random() * (i + 1));
+            var temp = array[i];
+            array[i] = array[j];
+            array[j] = temp;
+        }
+        return array;
       }
       var cont = function() {
         song.play();
       } var setPlaylist = function(willPlay) {
           playlist.splice(playlist.indexOf(willPlay, 1));
+      } var shuffle = function() {
+          playlist = shuffleArray(playlist);
+      } var skip = function() {
+          song.pause();
+          play(playlist[next]);
+          song.play();
+          if (next === 2) {
+              next = 0;
+          } else {
+              next += 1;
+          }
       }
     </script>
     <br/>
@@ -72,9 +91,13 @@
     <a style="font-family: 'Ubuntu', sans-serif;color:#2aabb7;font-size:25px;border-bottom:solid;border-top:solid;margin-bottom:10px;" onclick="play('/weight_in_gold.mp3');">Weight in Gold</a>
       <br></br>
       <br/>
+    <a style="font-family: 'Ubuntu', sans-serif;color:#2aabb7;font-size:25px;border-bottom:solid;border-top:solid;margin-bottom:10px;" onclick="play('/attention.mp3');">Attention</a>
+      <br></br>
+      <br></br>
     <div id="mySidenav" class="sidenav">
   <a id="play" onclick="cont();">Play</a>
   <a id="pause" onclick="pause();">Pause</a>
+        <a id="shuffle" onclick="shuffle();">Shuffle</a>
       </div>
   </head>
 </html>
