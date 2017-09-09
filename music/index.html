@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<style>
+#mySidenav a {
+    position: absolute;
+    left: -80px;
+    transition: 0.3s;
+    padding: 15px;
+    width: 100px;
+    text-decoration: none;
+    font-size: 20px;
+    color: white;
+    border-radius: 0 5px 5px 0;
+}
+#mySidenav a:hover {
+    left: 0;
+}
+#play {
+    top: 20px;
+    background-color: #2aabb7;
+    font-family: 'Ubuntu';
+}
+#pause {
+    top: 80px;
+    background-color: #2aabb7;
+    font-family: 'Ubuntu';
+}
+#shuffle {
+    top: 140px;
+    background-color: #2aabb7;
+    font-family: 'Ubuntu';
+}
+#skip {
+    top: 200px;
+    background-color: #2aabb7;
+    font-family: 'Ubuntu';
+</style>
+<html>
+  <head>
+    <title>Music</title>
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu:700" rel="stylesheet">
+  </head>
+  <body>
+      <script type="text/javascript" src="tblscript.js"></script>
+    <br/>
+    <br/>
+    <center><h1 style="font-family: 'Ubuntu', sans-serif;color:#FFFFFF;background:#2aabb7;height:70px;width:230px;font-size:60px;border-radius:25px;">Music</h1></center>
+    <center>
+    <a style="width:95%;font-family: 'Ubuntu', sans-serif;color:#2aabb7;font-size:25px;border-bottom:solid;border-top:solid;margin-bottom:10px;" onclick="play('/Troye%20Sivan%20-%20FOOLS%20(Blue%20Neighbourhood%20Part%2023).mp3');">Long Gone</a>
+        <br/>
+        <br/>
+    <a style="width:95%;font-family: 'Ubuntu', sans-serif;color:#2aabb7;font-size:25px;border-bottom:solid;border-top:solid;margin-bottom:10px;" onclick="play('/Clean%20Bandit%20-%20Rockabye%20ft.%20Sean%20Paul%20&%20Anne-Marie%20Official%20Video.mp3');">Rockabye</a>
+        <br/>
+        <br/>
+    <a style="width:95%;font-family: 'Ubuntu', sans-serif;color:#2aabb7;font-size:25px;border-bottom:solid;border-top:solid;margin-bottom:10px;" onclick="play('/weight_in_gold.mp3');">Weight in Gold</a>
+      <br/>
+      <br/>
+    <a style="width:95%;font-family: 'Ubuntu', sans-serif;color:#2aabb7;font-size:25px;border-bottom:solid;border-top:solid;margin-bottom:10px;" onclick="play('/attention.mp3');">Rockabye</a>
+      <br></br>
+      <br></br>
+    <div id="mySidenav" class="sidenav">
+  <a id="play" onclick="cont();">Play</a>
+  <a id="pause" onclick="pause();">Pause</a>
+        <a id="shuffle" onclick="shuffle();">Shuffle</a>
+        <a id="skip" onclick="loadPlaylist();">Playlist</a>
+      </div>
+      <a style="float:left;color:#2aabb7;size:20px;margin-right: 2px;font-size:20px;position:absolute;bottom:2.3%;right:93px;font-family:'Ubuntu';">by</a>
+  <div style="float:left;background:#2aabb7;width:85px;text-align:center;border-radius:12px;height:25px;font-size:20px;color:#FFFF;position:absolute;bottom:2%;right:6px;font-family: 'Ubuntu';">D-tech</a>
+  </head>
+</html>
