@@ -77,9 +77,9 @@
       }
       function skip() {
           song.pause();
-          play(playlist[next]);
+          song = playlist[next];
           song.play();
-          if (next === 2) {
+          if (next === playlist.length - 1) {
               next = 0;
           } else {
               next += 1;
