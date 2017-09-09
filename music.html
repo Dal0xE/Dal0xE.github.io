@@ -41,11 +41,11 @@
     <link href="https://fonts.googleapis.com/css?family=Ubuntu:700" rel="stylesheet">
   </head>
   <body>
-      <script>
+      <script type="text/javascript">
       var song
       var playlist = ['/weight_in_gold.mp3', '/Clean%20Bandit%20-%20Rockabye%20ft.%20Sean%20Paul%20&%20Anne-Marie%20Official%20Video.mp3', '/Troye%20Sivan%20-%20FOOLS%20(Blue%20Neighbourhood%20Part%2023).mp3', '/attention.mp3'];
       var next = 0;
-      var play = function(svar) {
+      function play(svar) {
     		song = new Audio(svar);
             setPlaylist(svar);
         	song.play();
@@ -54,7 +54,7 @@
                 skip();
             });
       }
-      var pause = function() {
+      function pause() {
         song.pause();
       }
       function shuffleArray(array) {
@@ -66,16 +66,16 @@
         }
         return array;
       }
-      var cont = function() {
+      function cont() {
         song.play();
       }
-      var setPlaylist = function(willPlay) {
+      function setPlaylist(willPlay) {
           playlist = exclude(playlist, willPlay);
       }
-      var shuffle = function() {
+      function shuffle() {
           playlist = shuffleArray(playlist);
       }
-      var skip = function() {
+      function skip() {
           song.pause();
           play(playlist[next]);
           song.play();
@@ -85,13 +85,14 @@
               next += 1;
           }
       }
-      var exclude = function(li, exc) {
+      function exclude(li, exc) {
           var fnl = [];
           for (var x; x < li.length; x++) {
               if (li[x] != exc) {
                   fnl.push(li[x]);
           return(fnl);
               }
+          }
       }
     </script>
     <br/>
