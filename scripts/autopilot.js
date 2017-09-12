@@ -2,6 +2,7 @@
 Autopilot = function() {
   this.storage = new LocalStorageManager;
   hasdest = (this.storage.seek("autopilot." + window.location) !== 0);
+  noRedirect = (this.storage.seek("noAutopilot") !== 0 && JSON.parse(this.storage.seek("noAutopilot")) != false);
 }
 Autopilot.prototype.setDest = function(dest) {
   this.storage.setItem("autopilot." + window.location, dest);
