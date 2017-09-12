@@ -8,7 +8,7 @@ Autopilot.prototype.setDest = function(dest) {
   this.storage.setItem("autopilot." + window.location, dest);
 }
 Autopilot.prototype.redirect = function() {
-  if (this.hasdest) {
+  if (this.hasdest && !noRedirect) {
     window.location = this.storage.getItem("autopilot." + window.location);
   }
   else {
