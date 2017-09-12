@@ -13,4 +13,5 @@ if (slist === 0) {
   catch (exception) {
     b[window.location] = 1;
   }
+  storage.setItem("visited", JSON.stringify(b));
 }
