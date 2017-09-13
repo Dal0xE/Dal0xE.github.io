@@ -28,7 +28,7 @@ Autopilot.prototype.redirectUniversal = function() {
   if (destinations === 0) {
     throw 1;
   } else {
-    rlist = JSON.parse(this.storage.getItem("visited");
+    rlist = JSON.parse(this.storage.getItem("visited"));
     clarge = undefined;
     for (var x; x < visited.length; x++) {
       if (visited[x] > visited[clarge]) {
