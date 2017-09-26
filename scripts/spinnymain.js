@@ -18,9 +18,15 @@ gameManager.prototype.addPosition = function() {
   else {
     this.position++;
   }
+};
 gameManager.prototype.userDidTouch = function() {
   this.addPosition();
 };
+gameManager.prototype.testForSuccess = function(color) {
+  if (this.position === color) {
+    return;
+  else {
+    this.gameDidEnd();
 function gameComponent() {
   this.canvasArea = document.getElementById("mainGame");
   this.y = this.canvasArea.height / 2;
@@ -35,3 +41,4 @@ gameComponent.prototype.changeColor() {
 };
 gameComponent.prototype.mapColorToPosition() {
   var positionByColor = {0: 0.0, 1: 51.42, 2: 102.84, 3: 154.26, 4: 207.68, 5: 259.10, 6: 310.52};
+};
