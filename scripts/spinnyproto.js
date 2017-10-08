@@ -1,7 +1,7 @@
 var cdeg = 0
 var ctx = document.getElementById('silveralchemy').getContext('2d');
 var canvas = document.getElementById('silveralchemy');
-let dglist = {0: 0.0, 1: 51.42, 2: 102.84, 3: 154.26, 4: 207.68, 5: 259.10, 6: 310.52};
+let dglist = {0: 0, 1: 51, 2: 102, 3: 154, 4: 207, 5: 259, 6: 310};
 function drawImageRot(img,x,y,width,height,deg){
     //Rotate the canvas, draw the image (right side up), and rotate the canvas back
     ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -24,3 +24,4 @@ function userDidTouch() {
     drawImageRot(img, 0, 0, img.width, img.height, getNextDeg());
 }
 window.addEventListener('touchstart', userDidTouch);
+window.addEventListener('onclick', userDidTouch);
