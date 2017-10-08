@@ -1,18 +1,26 @@
+var cdeg = 0
+var ctx = document.getElementById('silveralchemy').getContext('2d');
+var canvas = document.getElementById('silveralchemy');
+let dglist = {0: 0.0, 1: 51.42, 2: 102.84, 3: 154.26, 4: 207.68, 5: 259.10, 6: 310.52};
 function drawImageRot(img,x,y,width,height,deg){
-
-    //Convert degrees to radian 
+    //Rotate the canvas, draw the image (right side up), and rotate the canvas back
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
     var rad = deg * Math.PI / 180;
-
-    //Set the origin to the center of the image
     ctx.translate(x + width / 2, y + height / 2);
-
-    //Rotate the canvas around the origin
     ctx.rotate(rad);
-
-    //draw the image    
     ctx.drawImage(img,width / 2 * (-1),height / 2 * (-1),width,height);
-
-    //reset the canvas  
     ctx.rotate(rad * ( -1 ) );
     ctx.translate((x + width / 2) * (-1), (y + height / 2) * (-1));
 }
+function getNextDeg() {
+    cdeg ++;
+    if (cdeg > 6) {
+        cdeg = 0;
+    }
+    return dglist[cdeg];
+}
+function userDidTouch() {
+    img = document.getElementById('imgus');
+    drawImageRot(img, 0, 0, img.width, img.height, getNextDeg());
+}
+window.addEventListener('touchstart', userDidTouch);
