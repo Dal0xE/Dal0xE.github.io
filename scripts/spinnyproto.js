@@ -1,7 +1,7 @@
 var cdeg = 0
 var ctx = document.getElementById('silveralchemy').getContext('2d');
 var canvas = document.getElementById('silveralchemy');
-let dglist = {0: 0, 1: 53, 2: 102, 3: 154, 4: 207, 5: 259, 6: 310};
+let dglist = {0: 0, 1: 52, 2: 103, 3: 154, 4: 207, 5: 259, 6: 310};
 function drawImageRot(img,x,y,width,height,deg){
     //Rotate the canvas, draw the image (right side up), and rotate the canvas back
     ctx.clearRect(0, 0, canvas.width, canvas.height);
