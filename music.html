@@ -77,6 +77,9 @@
       }
       function skip() {
           song.pause();
+          if (playlist[next] === undefined) {
+              next += 1;
+          }
           song = playlist[next];
           song.play();
           if (next === playlist.length - 1) {
@@ -93,14 +96,6 @@
           return(fnl);
               }
           }
-      }
-      function loadPlaylist() {
-          for (var x; x < playlist.length; x++) {
-              playlist[x] = new Audio(playlist[x]);
-          }
-          var modb = document.getElementById('skip');
-          modb.text = "Skip";
-          modb.onclick = skip;
       }
     </script>
     <br/>
@@ -123,7 +118,7 @@
   <a id="play" onclick="cont();">Play</a>
   <a id="pause" onclick="pause();">Pause</a>
         <a id="shuffle" onclick="shuffle();">Shuffle</a>
-        <a id="skip" onclick="loadPlaylist();">Playlist</a>
+        <a id="skip" onclick="skip();">Skip</a>
       </div>
       <a style="float:left;color:#2aabb7;size:20px;margin-right: 2px;font-size:20px;position:absolute;bottom:2.3%;right:93px;font-family:'Ubuntu';">by</a>
   <div style="float:left;background:#2aabb7;width:85px;text-align:center;border-radius:12px;height:25px;font-size:20px;color:#FFFF;position:absolute;bottom:2%;right:6px;font-family: 'Ubuntu';">D-tech</a>
