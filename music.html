@@ -77,6 +77,11 @@
       }
       function skip() {
           song.pause();
+          //For some odd reason, this is necessary
+          if (next === undefined) {
+              next = 0;
+          }
+          //Resolves potential to encounter a removed string
           if (playlist[next] === undefined) {
               next += 1;
           }
