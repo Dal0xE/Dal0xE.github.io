@@ -82,8 +82,11 @@
               next = 0;
           }
           //Resolves potential to encounter a removed string
-          if (playlist[next] === undefined) {
+          while (playlist[next] === undefined) {
               next += 1;
+              if (next === playlist.length) {
+                  alert("Shit's hit the fan, boss.");
+              }
           }
           song = playlist[next];
           song.play();
