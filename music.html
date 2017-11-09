@@ -88,7 +88,7 @@
                   alert("Shit's hit the fan, boss.");
               }
           }
-          song = playlist[next];
+          song = new Audio(playlist[next]);
           song.play();
           if (next === playlist.length - 1) {
               next = 0;
