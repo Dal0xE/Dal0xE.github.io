@@ -45,8 +45,10 @@
       var song;
       var playlist = ['/weight_in_gold.mp3', '/Clean%20Bandit%20-%20Rockabye%20ft.%20Sean%20Paul%20&%20Anne-Marie%20Official%20Video.mp3', '/Troye%20Sivan%20-%20FOOLS%20(Blue%20Neighbourhood%20Part%2023).mp3', '/attention.mp3'];
       var next = 0;
+      var playcache = {};
       function play(svar) {
     		song = new Audio(svar);
+            playcache[svar] = song;
             setPlaylist(svar);
         	song.play();
             song.addEventListener("ended", function() {
@@ -86,7 +88,11 @@
               playlist = ['/weight_in_gold.mp3', '/Clean%20Bandit%20-%20Rockabye%20ft.%20Sean%20Paul%20&%20Anne-Marie%20Official%20Video.mp3', '/Troye%20Sivan%20-%20FOOLS%20(Blue%20Neighbourhood%20Part%2023).mp3', '/attention.mp3'];
               next = 0;
           }
-          song = new Audio(playlist[next]);
+          if (playlist[next] in playcache) {
+              song = playcache[playlist[next]];
+          } else {
+              song = new Audio(playlist[next]);
+          }
           song.play();
           if (next === playlist.length - 1) {
               next = 0;
