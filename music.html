@@ -82,12 +82,9 @@
               next = 0;
           }
           //Resolves potential to encounter a removed string
-          while (playlist[next] === undefined) {
-              next += 1;
-              if (next === playlist.length) {
-                  alert("Shit's hit the fan, boss.");
-                  break;
-              }
+          if (playlist[next] === undefined) {
+              playlist = ['/weight_in_gold.mp3', '/Clean%20Bandit%20-%20Rockabye%20ft.%20Sean%20Paul%20&%20Anne-Marie%20Official%20Video.mp3', '/Troye%20Sivan%20-%20FOOLS%20(Blue%20Neighbourhood%20Part%2023).mp3', '/attention.mp3'];
+              next = 0;
           }
           song = new Audio(playlist[next]);
           song.play();
@@ -100,7 +97,7 @@
       function exclude(li, exc) {
           var fnl = [];
           for (var x; x < li.length; x++) {
-              if (li[x] != exc) {
+              if (li[x] !== exc) {
                   fnl.push(li[x]);
               }
           }
