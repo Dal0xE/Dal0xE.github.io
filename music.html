@@ -43,7 +43,7 @@
   <body>
       <script type="text/javascript">
       var song;
-      var playlist = ['/weight_in_gold.mp3', '/Clean%20Bandit%20-%20Rockabye%20ft.%20Sean%20Paul%20&%20Anne-Marie%20Official%20Video.mp3', '/Troye%20Sivan%20-%20FOOLS%20(Blue%20Neighbourhood%20Part%2023).mp3', '/attention.mp3'];
+      var playlist = ['/weight_in_gold.mp3', '/Clean%20Bandit%20-%20Rockabye%20ft.%20Sean%20Paul%20&%20Anne-Marie%20Official%20Video.mp3', '/attention.mp3'];
       var next = 0;
       var playcache = {};
       var played = false;
@@ -89,7 +89,7 @@
           }
           //Resolves potential to encounter a removed string
           if (playlist[next] === undefined) {
-              playlist = ['/weight_in_gold.mp3', '/Clean%20Bandit%20-%20Rockabye%20ft.%20Sean%20Paul%20&%20Anne-Marie%20Official%20Video.mp3', '/Troye%20Sivan%20-%20FOOLS%20(Blue%20Neighbourhood%20Part%2023).mp3', '/attention.mp3'];
+              playlist = ['/weight_in_gold.mp3', '/Clean%20Bandit%20-%20Rockabye%20ft.%20Sean%20Paul%20&%20Anne-Marie%20Official%20Video.mp3', '/attention.mp3'];
               next = 0;
           }
           if (playlist[next] in playcache) {
@@ -122,7 +122,6 @@
     <br/>
     <center><h1 style="font-family: 'Ubuntu', sans-serif;color:#FFFFFF;background:#2aabb7;height:70px;width:230px;font-size:60px;border-radius:25px;">Music</h1></center>
     <center>
-    <a style="width:95%;font-family: 'Ubuntu', sans-serif;color:#2aabb7;font-size:25px;border-bottom:solid;border-top:solid;margin-bottom:10px;" onclick="play('/Troye%20Sivan%20-%20FOOLS%20(Blue%20Neighbourhood%20Part%2023).mp3');">Long Gone</a>
         <br/>
         <br/>
     <a style="width:95%;font-family: 'Ubuntu', sans-serif;color:#2aabb7;font-size:25px;border-bottom:solid;border-top:solid;margin-bottom:10px;" onclick="play('/Clean%20Bandit%20-%20Rockabye%20ft.%20Sean%20Paul%20&%20Anne-Marie%20Official%20Video.mp3');">Rockabye</a>
