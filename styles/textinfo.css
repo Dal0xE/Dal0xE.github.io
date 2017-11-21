@@ -1,5 +1,16 @@
-#res-block_words {
-  display: inline-block;
-  background: -webkit-linear-gradient(left top, #85cba8, #76c4e2);
-  position: absolute;
-  
+.res-block_container {
+  display: flex;
+  justify-content: center;
+}
+.res-block_container>div {
+  width: 30%;
+  margin: 30px;
+}
+.text-top {
+  margin: 30px;
+  text-align: left;
+  font-size: 20px;
+  font-family: 'Ubuntu';
+}
+.number {
+  margin:
