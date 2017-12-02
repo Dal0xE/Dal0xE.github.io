@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+<style>
+label {
+  color: #ffffff;
+  font-size: 500%;
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: 'Ubuntu', sans-serif;
+}
+.indicator {
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.check {
+	stroke-dasharray: 210;
+    stroke-dashoffset: 210;
+    animation: dash 0.4s linear forwards;
+}
+@keyframes dash {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+body {
+  background-color:#85cba8;
+}
+</style>
+<html>
+
+<body>
+
+<label><strong>Correct!</strong></label>
+
+<center>
+<svg class="indicator" height="230" width="230">
+  <circle cx = "115" cy = "115" r = "115" fill="#ffffff"/>
+  <circle cx = "115" cy = "115" r="100" fill="#85cba8"/>
+  <polyline class="check" points="55,65 125,170 175,105" style="fill:none;stroke:white;stroke-width:20"/>
+</svg>
+</center>
+
+</body>
+</html>
