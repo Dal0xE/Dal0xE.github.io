@@ -43,7 +43,9 @@ LocalStorageManager.prototype.store = function(key, value) {
 LocalStorageManager.prototype.get = function(key) {
   return this.storage.getItem(key);
 }
+/*DEPRECATED: This functionality has been added to the standard getter function. Expect a result or undefined when a requested item does not exist.
 //Returns an item if it exists, 0 otherwise. Good for use when you aren't sure an item exists.
 LocalStorageManager.prototype.seek = function(key) {
   return this.storage.getItem(key) || 0;
 }
+*/
