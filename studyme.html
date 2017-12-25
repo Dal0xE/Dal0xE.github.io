@@ -66,19 +66,19 @@
   <iframe class="indicator" id="correct" src="/stcorrect"/>
   <iframe class="indicator" id="incorrect" src="/stincorrect"/>
 <script>
-  function showCorrect() {
+  window.showCorrect = function() {
     document.getElementById("correct").style.height = "100%";
     document.getElementById("correct").style.width = "100%";
   }
-  function hideCorrect() {
+  window.hideCorrect = function() {
     document.getElementById("correct").style.height = "0%";
     document.getElementById("correct").style.width = "0%";
   }
-  function showIncorrect() {
+  window.showIncorrect = function() {
     document.getElementById("incorrect").style.height = "100%";
     document.getElementById("incorrect").style.width = "100%";
   }
-  function hideIncorrect() {
+  window.hideIncorrect = function() {
     document.getElementById("incorrect").style.height = "0%";
     document.getElementById("incorrect").style.width = "0%";
   }
