@@ -43,15 +43,27 @@
   left: 50%;
   top: 33.3%;
   transform: translate(-50%, -250%);
+}
+.indicator {
+  display: none;
+  height: 0%;
+  width: 0%;
+  position: absolute;
+  bottom: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 </style>
 <html>
 <head>
   <title>StudyMe</title>
 </head>
 <body>
-  <button class="obutton first">Placeholder</button>
-  <button class="obutton second">Placeholder</button>
-  <button class="obutton third">Placeholder</button>
-  <button class="obutton fourth">Placeholder</button>
-  <a class="question">Placeholder</a>
+  <button class="obutton first" id="b1">Placeholder</button>
+  <button class="obutton second" id="b2">Placeholder</button>
+  <button class="obutton third" id="b3">Placeholder</button>
+  <button class="obutton fourth" id="b4">Placeholder</button>
+  <a class="question" id="q">Placeholder</a>
+  <iframe class="indicator" id="correct" src="/stcorrect"/>
+  <iframe class="indicator" id="incorrect" src="/stincorrect"/>
 </body>
+</html>
