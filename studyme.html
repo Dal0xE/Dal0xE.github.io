@@ -58,7 +58,7 @@
   <title>StudyMe</title>
 </head>
 <body>
-  <button class="obutton first" id="b1">Placeholder</button>
+  <button class="obutton first" id="b1" onclick="showCorrect();">Placeholder</button>
   <button class="obutton second" id="b2">Placeholder</button>
   <button class="obutton third" id="b3">Placeholder</button>
   <button class="obutton fourth" id="b4">Placeholder</button>
@@ -67,3 +67,17 @@
   <iframe class="indicator" id="incorrect" src="/stincorrect"/>
 </body>
 </html>
+<script>
+  function showCorrect() {
+    document.getElementById("correct").style.size = "100%";
+  }
+  function hideCorrect() {
+    document.getElementById("correct").style.size = "0%";
+  }
+  function showIncorrect() {
+    document.getElementById("incorrect").style.size = "100%";
+  }
+  function hideIncorrect() {
+    document.getElementById("incorrect").style.size = "0%";
+  }
+</script>
