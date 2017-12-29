@@ -7,7 +7,7 @@ function ContextParser() {
   this.set = undefined;
   this.fetcher = new XMLHttpRequest();
   this.fetcher.onReadyStateChange = this.postproc;
-  this.fetcher.open("GET", "file:////Users/dcrenshaw/Documents/studyset.js", false);
+  this.fetcher.open("GET", "https://dal0xe.github.io/sets/" + setname, false);
   this.fetcher.send();
   this.version = 1.0;
   this.questionspace = document.getElementById("q");
