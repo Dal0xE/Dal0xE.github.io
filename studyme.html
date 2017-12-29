@@ -46,17 +46,56 @@
 }
 .indicator {
   display: none;
-  height: 0%;
-  width: 0%;
+  height: 100%;
+  width: 100%;
   position: absolute;
-  bottom: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  border: none;
+}
+body {
+  margin: 0;
+}
 </style>
 <html>
 <head>
   <title>StudyMe</title>
 </head>
+  <script>
+/*Deprecated listener for closing notifiers; potential to reintroduce
+document.addEventListener('custom:event', function() {
+  console.log("F1")
+  hideCorrect();
+});
+*/
+var correct = 0;
+var incorrect = 0;
+  window.showCorrect = function() {
+    var cIndicator = document.getElementById("correct");
+    cIndicator.style.display = "block";
+    correct++;
+  }
+  window.hideCorrect = function() {
+    //console.log("Function reached");
+    var cIndicator = document.getElementById("correct");
+    cIndicator.style.display = "none";
+  }
+  window.showIncorrect = function() {
+    document.getElementById("incorrect").style.display = "block";
+    incorrect++;
+  }
+  window.hideIncorrect = function() {
+    document.getElementByid("incorrect").style.display = "none";
+  }
+  window.testCorrect = function() {
+    if (visible) {
+      hideCorrect();
+      visible = false;
+    }
+    else {
+      showCorrect();
+      visible = true;
+    }
+  }
+</script>
 <body>
   <button class="obutton first" id="b1" onclick="showCorrect()">Placeholder</button>
   <button class="obutton second" id="b2">Placeholder</button>
@@ -65,23 +104,5 @@
   <a class="question" id="q">Placeholder</a>
   <iframe class="indicator" id="correct" src="/stcorrect"/>
   <iframe class="indicator" id="incorrect" src="/stincorrect"/>
-<script>
-  window.showCorrect = function() {
-    document.getElementById("correct").style.height = "100%";
-    document.getElementById("correct").style.width = "100%";
-  }
-  window.hideCorrect = function() {
-    document.getElementById("correct").style.height = "0%";
-    document.getElementById("correct").style.width = "0%";
-  }
-  window.showIncorrect = function() {
-    document.getElementById("incorrect").style.height = "100%";
-    document.getElementById("incorrect").style.width = "100%";
-  }
-  window.hideIncorrect = function() {
-    document.getElementById("incorrect").style.height = "0%";
-    document.getElementById("incorrect").style.width = "0%";
-  }
-</script>
 </body>
 </html>
