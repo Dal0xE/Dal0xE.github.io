@@ -9,20 +9,20 @@ function ContextParser() {
   this.fetcher.onReadyStateChange = this.postproc;
   this.fetcher.open("GET", "file:////Users/dcrenshaw/Documents/studyset.js", false);
   this.fetcher.send();
-  self.version = 1.0;
-  self.questionspace = document.getElementById("q");
-  self.aspace1 = document.getElementById("b1");
-  self.aspace2 = document.getElementById("b2");
-  self.aspace3 = document.getElementById("b3");
-  self.aspace4 = document.getElementById("b4");
-  self.spacelist = [self.aspace1, self.aspace2, self.aspace3, self.aspace4];
+  this.version = 1.0;
+  this.questionspace = document.getElementById("q");
+  this.aspace1 = document.getElementById("b1");
+  this.aspace2 = document.getElementById("b2");
+  this.aspace3 = document.getElementById("b3");
+  this.aspace4 = document.getElementById("b4");
+  this.spacelist = [this.aspace1, this.aspace2, this.aspace3, this.aspace4];
 }
 ContextParser.prototype.setObjects = function(num) {
-  cset = self.set.set;
-  self.questionspace.text = cset[num][0];
+  cset = this.set.set;
+  this.questionspace.text = cset[num][0];
   cspace = Math.ceil(Math.random * 3);
-  self.spacelist[cspace].text = cset[num][1];
-  self.spacelist[cspace].onclick = "showCorrect()";
+  this.spacelist[cspace].text = cset[num][1];
+  this.spacelist[cspace].onclick = "showCorrect()";
   var used = [cspace];
   for (var x = 0; x < 3; x++) {
     attempt_t = Math.ceil(Math.random * 3);
