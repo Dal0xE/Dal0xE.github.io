@@ -33,6 +33,16 @@ body {
 <html>
 
 <body>
+  <script>
+  //New listener for click and touch events; closes correct notifier
+    document.addEventListener("click", function() {
+      //console.log("F0");
+      top.hideCorrect();
+    });
+    document.addEventListener("touchstart", function() {
+      top.hideCorrect();
+    })
+  </script>
 
 <label><strong>Correct!</strong></label>
 
