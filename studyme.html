@@ -62,30 +62,31 @@ body {
 <body>
   <script>
     var correct = 0;
-    var rcorrect = document.getElementById("correct");
-    var rincorrect = document.getElementById("incorrect");
     window.showCorrect = function() {
-      rcorrect.style.display = "block";
+      document.getElementById("correct").style.display = "block";
     }
     window.hideCorrect = function() {
-      rcorrect.style.display = "none";
+      document.getElementbyId("correct").style.display = "none";
     }
   </script>
   <button class="obutton first" id="b1" onclick="showCorrect()">Placeholder</button>
   <button class="obutton second" id="b2">Placeholder</button>
   <script>
     var incorrect = 0;
-    window.showIncorrect = function() {
-      rincorrect.style.display = "block";
-    }
-    window.hideIncorrect = function() {
-      rincorrect.style.display = "none";
-    }
+    window.showIncorrect = function(){};
+    window.hideincorrect = function(){};
   </script>
   <button class="obutton third" id="b3" onclick="showIncorrect()">Placeholder</button>
   <button class="obutton fourth" id="b4">Placeholder</button>
   <a class="question" id="q">Placeholder</a>
   <iframe class="indicator" id="correct" src="/stcorrect"/>
   <iframe class="indicator" id="incorrect" src="/stincorrect"/>
+  <script>
+    window.showIncorrect = function() {
+      document.getElementById("incorrect").style.display = "block";
+    }
+    window.hideIncorrect = function() {
+      document.getElementById("incorrect").style.display = "none";
+    }
 </body>
 </html>
