@@ -62,11 +62,13 @@ body {
 <body>
   <script>
     var correct = 0;
+    var rcorrect = document.getElementById("correct");
+    var rincorrect = document.getElementById("incorrect");
     window.showCorrect = function() {
-      document.getElementById("correct").style.display = "block";
+      rcorrect.style.display = "block";
     }
     window.hideCorrect = function() {
-      document.getElementById("correct").style.display = "none";
+      rcorrect.style.display = "none";
     }
   </script>
   <button class="obutton first" id="b1" onclick="showCorrect()">Placeholder</button>
@@ -74,10 +76,10 @@ body {
   <script>
     var incorrect = 0;
     window.showIncorrect = function() {
-      document.getElementById("incorrect").style.display = "block";
+      rincorrect.style.display = "block";
     }
     window.hideIncorrect = function() {
-      document.getElementById("incorrect").style.display = "none";
+      rincorrect.style.display = "none";
     }
   </script>
   <button class="obutton third" id="b3" onclick="showIncorrect()">Placeholder</button>
