@@ -60,6 +60,13 @@ body {
   <title>StudyMe</title>
 </head>
 <body>
+  <button class="obutton first" id="b1" onclick="showCorrect()">Placeholder</button>
+  <button class="obutton second" id="b2">Placeholder</button>
+  <button class="obutton third" id="b3" onclick="showIncorrect()">Placeholder</button>
+  <button class="obutton fourth" id="b4">Placeholder</button>
+  <a class="question" id="q">Placeholder</a>
+  <iframe class="indicator" id="correct" src="/stcorrect"/>
+  <iframe class="indicator" id="incorrect" src="/stincorrect"/>
   <script>
 /*Deprecated listener for closing notifiers; potential to reintroduce
 document.addEventListener('custom:event', function() {
@@ -97,12 +104,5 @@ var incorrect = 0;
     }
   }
 </script>
-  <button class="obutton first" id="b1" onclick="showCorrect()">Placeholder</button>
-  <button class="obutton second" id="b2">Placeholder</button>
-  <button class="obutton third" id="b3" onclick="showIncorrect()">Placeholder</button>
-  <button class="obutton fourth" id="b4">Placeholder</button>
-  <a class="question" id="q">Placeholder</a>
-  <iframe class="indicator" id="correct" src="/stcorrect"/>
-  <iframe class="indicator" id="incorrect" src="/stincorrect"/>
 </body>
 </html>
