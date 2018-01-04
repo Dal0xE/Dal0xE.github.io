@@ -60,30 +60,55 @@ body {
   <title>StudyMe</title>
 </head>
 <body>
-  <script>
-    var correct = 0;
-    var incorrect = 0;
-    window.showCorrect = function() {
-      correct++;
-      document.getElementById("correct").style.display = "block";
+<script>
+/*Deprecated listener for closing notifiers; potential to reintroduce
+document.addEventListener('custom:event', function() {
+  console.log("F1")
+  hideCorrect();
+});
+*/
+var correct = 0;
+var incorrect = 0;
+  window.showCorrect = function() {
+    var cIndicator = document.getElementById("correct");
+    cIndicator.style.display = "block";
+    correct++;
+  }
+  window.hideCorrect = function() {
+    //console.log("Function reached");
+    var cIndicator = document.getElementById("correct");
+    cIndicator.style.display = "none";
+  }
+  window.showIncorrect = function() {
+    document.getElementById("incorrect").style.display = "block";
+    incorrect++;
+  }
+  window.hideIncorrect = function() {
+    document.getElementById("incorrect").style.display = "none";
+  }
+  window.testCorrect = function() {
+    if (visible) {
+      hideCorrect();
+      visible = false;
     }
-    window.hideCorrect = function() {
-      document.getElementById("correct").style.display = "none";
+    else {
+      showCorrect();
+      visible = true;
     }
-    window.showIncorrect = function() {
-      incorrect++;
-      document.getElementById("incorrect").style.display = "block";
-    }
-    window.hideIncorrect = function() {
-      document.getElementById("incorrect").style.display = "none";
-    }
-  </script>
+  }
+</script>
   <button class="obutton first" id="b1" onclick="showCorrect()">Placeholder</button>
   <button class="obutton second" id="b2">Placeholder</button>
   <button class="obutton third" id="b3" onclick="showIncorrect()">Placeholder</button>
   <button class="obutton fourth" id="b4">Placeholder</button>
   <a class="question" id="q">Placeholder</a>
-  <iframe class="indicator" id="correct" src="/stcorrect"/>
-  <iframe class="indicator" id="incorrect" src="/stincorrect"/>
+  <iframe class="indicator" id="correct" src="/stcorrect.html"></iframe>
+  <iframe class="indicator" id="incorrect" src="/stincorrect.html"></iframe>
+  <script>
+    /*
+    document.getElementById("b3").addEventListener("click", showIncorrect);
+    document.getElementById("b3").addEventListener("touchend", showIncorrect);
+    */
+  </script>
 </body>
 </html>
