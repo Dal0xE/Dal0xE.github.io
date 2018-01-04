@@ -62,28 +62,28 @@ body {
 <body>
   <script>
     var correct = 0;
+    var incorrect = 0;
     window.showCorrect = function() {
+      correct++;
       document.getElementById("correct").style.display = "block";
     }
     window.hideCorrect = function() {
       document.getElementById("correct").style.display = "none";
     }
-  </script>
-  <button class="obutton first" id="b1" onclick="showCorrect()">Placeholder</button>
-  <button class="obutton second" id="b2">Placeholder</button>
-  <button class="obutton third" id="b3">Placeholder</button>
-  <button class="obutton fourth" id="b4">Placeholder</button>
-  <a class="question" id="q">Placeholder</a>
-  <iframe class="indicator" id="correct" src="/stcorrect"/>
-  <iframe class="indicator" id="incorrect" src="/stincorrect"/>
-  <script>
     window.showIncorrect = function() {
+      incorrect++;
       document.getElementById("incorrect").style.display = "block";
     }
     window.hideIncorrect = function() {
       document.getElementById("incorrect").style.display = "none";
     }
-    document.getElementById("b3").onclick = "showIncorrect()";
   </script>
+  <button class="obutton first" id="b1" onclick="showCorrect()">Placeholder</button>
+  <button class="obutton second" id="b2">Placeholder</button>
+  <button class="obutton third" id="b3" onclick="showIncorrect()">Placeholder</button>
+  <button class="obutton fourth" id="b4">Placeholder</button>
+  <a class="question" id="q">Placeholder</a>
+  <iframe class="indicator" id="correct" src="/stcorrect"/>
+  <iframe class="indicator" id="incorrect" src="/stincorrect"/>
 </body>
 </html>
