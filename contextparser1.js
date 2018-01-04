@@ -1,9 +1,5 @@
 function ContextParser() {
-  var set_t = location.hash;
-  var setname = "";
-  for (var x = 1; x < set_t.length; x++) {
-    setname += set_t[x];
-  }
+  var setname = location.hash.split("#")[0]
   this.set = undefined;
   this.fetcher = new XMLHttpRequest();
   this.fetcher.onReadyStateChange = this.postproc;
@@ -25,16 +21,19 @@ ContextParser.prototype.setObjects = function(num) {
   this.spacelist[cspace].onclick = "showCorrect()";
   var used = [cspace];
   for (var x = 0; x < 3; x++) {
-    attempt_t = Math.ceil(Math.random * 3);
-    while (!(attempt_t in used)) {
-      attempt_t = Math.ceil(Math.random * 3);
-    }
+    do {
+      attempt_t = Math.ceil(Math.random * 3)
+    } while (attempt_t in used);
     this.spacelist[attempt_t].text = cset[x + 2];
     this.spacelist[attempt_t].onclick = "showIncorrect()";
   }
 }
 ContextParser.prototype.postproc = function() {
   if (this.fetcher.readyState === 4) {
+    if (this.fetcher.status != 200) { //Something went wrong
+      location.replace("/seterror");
+      return;
+    }
     this.set = JSON.parse(this.fetcher.responseText);
   }
 }
