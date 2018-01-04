@@ -61,6 +61,7 @@ body {
   <title>StudyMe</title>
 </head>
 <body>
+  <script src="/contextparser1.js" />
 <script>
 /*Deprecated listener for closing notifiers; potential to reintroduce
 document.addEventListener('custom:event', function() {
@@ -70,6 +71,7 @@ document.addEventListener('custom:event', function() {
 */
 var correct = 0;
 var incorrect = 0;
+var parser = new ContextParser();
   window.showCorrect = function() {
     var cIndicator = document.getElementById("correct");
     cIndicator.style.display = "block";
@@ -97,6 +99,7 @@ var incorrect = 0;
       visible = true;
     }
   }
+  parser.setObjects();
 </script>
   <button class="obutton first" id="b1" onclick="showCorrect()">Placeholder</button>
   <button class="obutton second" id="b2">Placeholder</button>
@@ -105,6 +108,5 @@ var incorrect = 0;
   <a class="question" id="q">Placeholder</a>
   <iframe class="indicator" id="correct" src="/stcorrect.html"></iframe>
   <iframe class="indicator" id="incorrect" src="/stincorrect.html"></iframe>
-  <script src="/contextparser1.js" />
 </body>
 </html>
