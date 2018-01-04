@@ -61,7 +61,7 @@ body {
   <title>StudyMe</title>
 </head>
 <body>
-  <script src="/contextparser1.js" />
+  <script src="/contextparser1.js" type="text/script" />
 <script>
 /*Deprecated listener for closing notifiers; potential to reintroduce
 document.addEventListener('custom:event', function() {
@@ -71,7 +71,6 @@ document.addEventListener('custom:event', function() {
 */
 var correct = 0;
 var incorrect = 0;
-var parser = new ContextParser();
   window.showCorrect = function() {
     var cIndicator = document.getElementById("correct");
     cIndicator.style.display = "block";
@@ -99,6 +98,7 @@ var parser = new ContextParser();
       visible = true;
     }
   }
+  var parser = new ContextParser();
   parser.setObjects();
 </script>
   <button class="obutton first" id="b1" onclick="showCorrect()">Placeholder</button>
