@@ -34,6 +34,6 @@ ContextParser.prototype.postproc = function() {
       location.replace("/seterror");
       return;
     }
-    this.set = JSON.parse(this.fetcher.responseText);
+    this.set = JSON.parse(this.responseText);
   }
 }
