@@ -16,16 +16,17 @@ function ContextParser() {
 ContextParser.prototype.setObjects = function(num) {
   cset = this.set.set;
   this.questionspace.text = cset[num][0];
-  cspace = Math.ceil(Math.random * 3);
-  this.spacelist[cspace].text = cset[num][1];
+  cspace = Math.ceil(Math.random() * 3);
+  this.spacelist[cspace].textContent = cset[num][1];
   this.spacelist[cspace].onclick = "showCorrect()";
   var used = [cspace];
   for (var x = 0; x < 3; x++) {
     do {
-      attempt_t = Math.ceil(Math.random * 3)
+      attempt_t = Math.ceil(Math.random() * 3)
     } while (attempt_t in used);
-    this.spacelist[attempt_t].text = cset[x + 2];
+    this.spacelist[attempt_t].textContent = cset[x + 2];
     this.spacelist[attempt_t].onclick = "showIncorrect()";
+    used.push(attempt_t);
   }
 }
 ContextParser.prototype.postproc = function() {
@@ -34,6 +35,6 @@ ContextParser.prototype.postproc = function() {
       location.replace("/seterror");
       return;
     }
-    this.set = JSON.parse(this.responseText);
+    this.parent.set = JSON.parse(this.responseText);
   }
 }
