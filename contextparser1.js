@@ -1,5 +1,5 @@
 function ContextParser() {
-  var setname = location.hash.split("#")[0]
+  var setname = location.hash.split("#")[1]
   console.log(setname);
   this.set = undefined;
   this.fetcher = new XMLHttpRequest();
