@@ -29,8 +29,8 @@ ContextParser.prototype.setObjects = function(num) {
   }
 }
 ContextParser.prototype.postproc = function() {
-  if (this.fetcher.readyState === 4) {
-    if (this.fetcher.status != 200) { //Something went wrong
+  if (this.readyState === 4) {
+    if (this.status != 200) { //Something went wrong
       location.replace("/seterror");
       return;
     }
