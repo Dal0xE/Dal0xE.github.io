@@ -26,7 +26,7 @@ ContextParser.prototype.setObjects = function(num) {
     attempt_t = Math.ceil(Math.random() * 4) - 1;
     while (attempt_t in used) {
       attempt_t = Math.ceil(Math.random() * 4) - 1;
-      console.log("avoiding " + attempt_t);
+      console.log("avoiding " + attempt_t + " with " + used);
     }
     this.spacelist[attempt_t].textContent = cset[num][x + 2];
     this.spacelist[attempt_t].onclick = "showIncorrect();";
