@@ -30,7 +30,7 @@ ContextParser.prototype.setObjects = function(num) {
     this.spacelist[attempt_t].textContent = cset[num][x + 2];
     this.spacelist[attempt_t].onclick = "showIncorrect();";
     used.push(attempt_t);
-    console.log("iterated");
+    console.log("iterated to " + attempt_t);
   }
 }
 /*ContextParser.prototype.postproc = function() {
