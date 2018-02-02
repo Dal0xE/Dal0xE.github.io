@@ -1,10 +1,11 @@
-function ContextParser() {
+function ContextParser(fetcher_t) {
   var setname = location.hash.split("#")[1];
   console.log(setname);
-  this.fetcher = new XMLHttpRequest();
+  /*this.fetcher = new XMLHttpRequest();
   this.fetcher.onreadystatechange = this.postproc;
   this.fetcher.open("GET", "/sets/" + setname, false);
-  this.fetcher.send();
+  this.fetcher.send();*/
+  this.fetcher = fetcher_t;
   this.version = 1.0;
   this.questionspace = document.getElementById("q");
   this.aspace1 = document.getElementById("b1");
@@ -29,7 +30,7 @@ ContextParser.prototype.setObjects = function(num) {
     used.push(attempt_t);
   }
 }
-ContextParser.prototype.postproc = function() {
+/*ContextParser.prototype.postproc = function() {
   if (this.readyState === 4) {
     if (this.status != 200) { //Something went wrong
       //location.replace("/seterror");
@@ -37,4 +38,4 @@ ContextParser.prototype.postproc = function() {
     }
     this.parent.set = JSON.parse(this.responseText);
   }
-}
+}*/
