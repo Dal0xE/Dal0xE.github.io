@@ -23,10 +23,11 @@ ContextParser.prototype.setObjects = function(num) {
   this.spacelist[cspace].onclick = "showCorrect();";
   var used = [cspace];
   for (var x = 0; x < 3; x++) {
-    do {
+    attempt_t = Math.ceil(Math.random() * 4) - 1;
+    while (attempt_t in used) {
       attempt_t = Math.ceil(Math.random() * 4) - 1;
       console.log("avoiding " + attempt_t);
-    } while (!(attempt_t in used));
+    }
     this.spacelist[attempt_t].textContent = cset[num][x + 2];
     this.spacelist[attempt_t].onclick = "showIncorrect();";
     used.push(attempt_t);
