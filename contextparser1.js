@@ -15,7 +15,7 @@ ContextParser.prototype.setObjects = function(num) {
   mset = shuffleArray(this.spacelist);
   this.questionspace.text = cset[num][0];
   mset[0].textContent = cset[num][1];
-  this.mset[0].onclick = "showCorrect();";
+  mset[0].onclick = "showCorrect();";
   for (var x = 1; x <= 3; x++) {
     mset[x].textContent = cset[num][x + 2];
     mset[x].onclick = "showIncorrect();";
