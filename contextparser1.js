@@ -15,6 +15,7 @@ function ContextParser(parsed) {
   this.spacelist = [this.aspace1, this.aspace2, this.aspace3, this.aspace4];
 }
 ContextParser.prototype.setObjects = function(num) {
+  //DO: Use a shuffled list of question spaces instead of random numbers
   cset = this.set.set;
   this.questionspace.text = cset[num][0];
   cspace = Math.ceil(Math.random() * 4) - 1;
