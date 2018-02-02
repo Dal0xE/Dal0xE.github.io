@@ -1,5 +1,5 @@
 function ContextParser() {
-  var setname = location.hash.split("#")[1]
+  var setname = location.hash.split("#")[1];
   console.log(setname);
   this.fetcher = new XMLHttpRequest();
   this.fetcher.onreadystatechange = this.postproc;
@@ -22,7 +22,7 @@ ContextParser.prototype.setObjects = function(num) {
   var used = [cspace];
   for (var x = 0; x < 3; x++) {
     do {
-      attempt_t = Math.ceil(Math.random() * 3)
+      attempt_t = Math.ceil(Math.random() * 3);
     } while (attempt_t in used);
     this.spacelist[attempt_t].textContent = cset[x + 2];
     this.spacelist[attempt_t].onclick = "showIncorrect()";
