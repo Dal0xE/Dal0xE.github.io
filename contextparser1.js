@@ -32,7 +32,7 @@ ContextParser.prototype.setObjects = function(num) {
 ContextParser.prototype.postproc = function() {
   if (this.readyState === 4) {
     if (this.status != 200) { //Something went wrong
-      location.replace("/seterror");
+      //location.replace("/seterror");
       return;
     }
     this.parent.set = JSON.parse(this.responseText);
