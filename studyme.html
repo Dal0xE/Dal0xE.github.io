@@ -69,7 +69,7 @@ document.addEventListener('custom:event', function() {
   hideCorrect();
 });
 */
-var parsedSet = undefined;
+/*var parsedSet = undefined;
 window.postproc = function() {
   if (this.readyState === 4) {
     if (this.status != 200) { //Something went wrong
@@ -78,15 +78,15 @@ window.postproc = function() {
     }
     parsedSet = JSON.parse(this.responseText);
   }
-}
+}*/
 var correct = 0;
 var incorrect = 0;
-var setname = location.hash.split('#')[1];
+/*var setname = location.hash.split('#')[1];
 var centralFetcher = new XMLHttpRequest();
 centralFetcher.onreadystatechange = postproc;
 centralFetcher.open("GET", "/sets/" + setname, false);
 centralFetcher.send();
-var parser = new ContextParser(parsedSet);
+var parser = new ContextParser(parsedSet);*/
   window.showCorrect = function() {
     var cIndicator = document.getElementById("correct");
     cIndicator.style.display = "block";
@@ -114,7 +114,7 @@ var parser = new ContextParser(parsedSet);
       visible = true;
     }
   }
-  parser.setObjects(0);
+  //parser.setObjects(0);
 </script>
   <button class="obutton first" id="b1" onclick="showCorrect()">Placeholder</button>
   <button class="obutton second" id="b2">Placeholder</button>
@@ -123,5 +123,24 @@ var parser = new ContextParser(parsedSet);
   <a class="question" id="q">Placeholder</a>
   <iframe class="indicator" id="correct" src="/stcorrect.html"></iframe>
   <iframe class="indicator" id="incorrect" src="/stincorrect.html"></iframe>
+  <script>
+    var parsedSet = undefined;
+    window.postproc = function() {
+      if (this.readyState === 4) {
+        if (this.status != 200) { //Something went wrong
+          //location.replace("/seterror");
+          return;
+        }
+       parsedSet = JSON.parse(this.responseText);
+      }
+    }
+    var setname = location.hash.split('#')[1];
+    var centralFetcher = new XMLHttpRequest();
+    centralFetcher.onreadystatechange = postproc;
+    centralFetcher.open("GET", "/sets/" + setname, false);
+    centralFetcher.send();
+    var parser = new ContextParser(parsedSet);
+    parser.setObjects(0);
+  </script>
 </body>
 </html>
