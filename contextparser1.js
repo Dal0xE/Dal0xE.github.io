@@ -1,11 +1,11 @@
-function ContextParser(fetcher_t) {
+function ContextParser(parsed) {
   var setname = location.hash.split("#")[1];
   console.log(setname);
   /*this.fetcher = new XMLHttpRequest();
   this.fetcher.onreadystatechange = this.postproc;
   this.fetcher.open("GET", "/sets/" + setname, false);
   this.fetcher.send();*/
-  this.fetcher = fetcher_t;
+  this.set = parsed;
   this.version = 1.0;
   this.questionspace = document.getElementById("q");
   this.aspace1 = document.getElementById("b1");
