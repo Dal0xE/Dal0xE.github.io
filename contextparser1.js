@@ -1,10 +1,6 @@
 function ContextParser(parsed) {
   var setname = location.hash.split("#")[1];
   console.log(setname);
-  /*this.fetcher = new XMLHttpRequest();
-  this.fetcher.onreadystatechange = this.postproc;
-  this.fetcher.open("GET", "/sets/" + setname, false);
-  this.fetcher.send();*/
   this.set = parsed;
   this.version = 1.0;
   this.questionspace = document.getElementById("q");
@@ -15,32 +11,22 @@ function ContextParser(parsed) {
   this.spacelist = [this.aspace1, this.aspace2, this.aspace3, this.aspace4];
 }
 ContextParser.prototype.setObjects = function(num) {
-  //DO: Use a shuffled list of question spaces instead of random numbers
   cset = this.set.set;
+  mset = shuffleArray(this.spacelist);
   this.questionspace.text = cset[num][0];
-  cspace = Math.ceil(Math.random() * 4) - 1;
-  console.log(cspace);
-  this.spacelist[cspace].textContent = cset[num][1];
-  this.spacelist[cspace].onclick = "showCorrect();";
-  var used = [cspace];
-  for (var x = 0; x < 3; x++) {
-    attempt_t = Math.ceil(Math.random() * 4) - 1;
-    while (attempt_t in used) {
-      attempt_t = Math.ceil(Math.random() * 4) - 1;
-      console.log("avoiding " + attempt_t + " with " + used);
-    }
-    this.spacelist[attempt_t].textContent = cset[num][x + 2];
-    this.spacelist[attempt_t].onclick = "showIncorrect();";
-    used.push(attempt_t);
-    console.log("iterated to " + attempt_t);
+  mset[0].textContent = cset[num][1];
+  this.mset[0].onclick = "showCorrect();";
+  for (var x = 1; x <= 3; x++) {
+    mset[x].textContent = cset[num][x + 2];
+    mset[x].onclick = "showIncorrect();";
   }
 }
-/*ContextParser.prototype.postproc = function() {
-  if (this.readyState === 4) {
-    if (this.status != 200) { //Something went wrong
-      //location.replace("/seterror");
-      return;
-    }
-    this.parent.set = JSON.parse(this.responseText);
+function shuffleArray(array) {
+  for (var i = array.length - 1; i > 0; i--) {
+    var j = Math.floor(Math.random() * (i + 1));
+    var temp = array[i];
+    array[i] = array[j];
+    array[j] = temp;
   }
-}*/
+  return array;
+}
