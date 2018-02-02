@@ -25,7 +25,7 @@ ContextParser.prototype.setObjects = function(num) {
     do {
       attempt_t = Math.ceil(Math.random() * 3);
     } while (attempt_t in used);
-    this.spacelist[attempt_t].textContent = cset[x + 2];
+    this.spacelist[attempt_t].textContent = cset[num][x + 2];
     this.spacelist[attempt_t].onclick = "showIncorrect()";
     used.push(attempt_t);
   }
