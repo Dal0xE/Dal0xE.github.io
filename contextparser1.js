@@ -17,14 +17,14 @@ function ContextParser(parsed) {
 ContextParser.prototype.setObjects = function(num) {
   cset = this.set.set;
   this.questionspace.text = cset[num][0];
-  cspace = Math.ceil(Math.random() * 3);
+  cspace = Math.ceil(Math.random() * 4) - 1;
   console.log(cspace);
   this.spacelist[cspace].textContent = cset[num][1];
   this.spacelist[cspace].onclick = "showCorrect();";
   var used = [cspace];
   for (var x = 0; x < 3; x++) {
     do {
-      attempt_t = Math.ceil(Math.random() * 3);
+      attempt_t = Math.ceil(Math.random() * 4) - 1;
     } while (attempt_t in used);
     this.spacelist[attempt_t].textContent = cset[num][x + 2];
     this.spacelist[attempt_t].onclick = "showIncorrect();";
