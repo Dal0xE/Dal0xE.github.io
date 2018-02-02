@@ -16,7 +16,7 @@ function ContextParser(parsed) {
 }
 ContextParser.prototype.setObjects = function(num) {
   cset = this.set.set;
-  this.questionspace.textContent = cset[num][0];
+  this.questionspace.text = cset[num][0];
   cspace = Math.ceil(Math.random() * 3);
   this.spacelist[cspace].textContent = cset[num][1];
   this.spacelist[cspace].onclick = "showCorrect()";
