@@ -81,6 +81,7 @@ window.postproc = function() {
 }*/
 var correct = 0;
 var incorrect = 0;
+var nquestion = 0;
 /*var setname = location.hash.split('#')[1];
 var centralFetcher = new XMLHttpRequest();
 centralFetcher.onreadystatechange = postproc;
@@ -96,6 +97,8 @@ var parser = new ContextParser(parsedSet);*/
     //console.log("Function reached");
     var cIndicator = document.getElementById("correct");
     cIndicator.style.display = "none";
+    nquestion++;
+    parser.setObjects(nquestion);
   }
   window.showIncorrect = function() {
     document.getElementById("incorrect").style.display = "block";
@@ -103,6 +106,8 @@ var parser = new ContextParser(parsedSet);*/
   }
   window.hideIncorrect = function() {
     document.getElementById("incorrect").style.display = "none";
+    nquestion++;
+    parser.setObjects(nquestion);
   }
   window.testCorrect = function() {
     if (visible) {
