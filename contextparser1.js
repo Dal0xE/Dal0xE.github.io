@@ -19,6 +19,7 @@ ContextParser.prototype.setObjects = function(num) {
   mset[0].onclick = "showCorrect();";
   for (var x = 0; x <= 3; x++) {
     mset[x].textContent = cset[num][x + 2];
+    console.log(cset[num][x + 2]);
     mset[x].onclick = "showIncorrect();";
     console.log(mset[x]);
     console.log(x);
