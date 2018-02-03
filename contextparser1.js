@@ -3,6 +3,7 @@ function ContextParser(parsed) {
   console.log(setname);
   this.set = parsed;
   this.version = 1.0;
+  this.length = this.set.set.length;
   this.questionspace = document.getElementById("q");
   this.aspace1 = document.getElementById("b1");
   this.aspace2 = document.getElementById("b2");
