@@ -16,11 +16,11 @@ ContextParser.prototype.setObjects = function(num) {
   console.log(mset);
   this.questionspace.text = cset[num][0];
   mset[0].textContent = cset[num][1];
-  mset[0].onclick = "showCorrect();";
+  mset[0].onclick = top.showCorrect;
   for (var x = 1; x <= 3; x++) {
     mset[x].textContent = cset[num][x + 1];
     console.log(cset[num][x + 1]);
-    mset[x].onclick = "showIncorrect();";
+    mset[x].onclick = top.showIncorrect;
     console.log(mset[x]);
     console.log(x);
   }
