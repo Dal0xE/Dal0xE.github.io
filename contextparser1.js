@@ -21,6 +21,7 @@ ContextParser.prototype.setObjects = function(num) {
     mset[x].textContent = cset[num][x + 2];
     mset[x].onclick = "showIncorrect();";
     console.log(mset[x]);
+    console.log(x);
   }
 }
 function shuffleArray(array) {
