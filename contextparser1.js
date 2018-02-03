@@ -13,12 +13,14 @@ function ContextParser(parsed) {
 ContextParser.prototype.setObjects = function(num) {
   cset = this.set.set;
   mset = shuffleArray(this.spacelist);
+  console.log(mset);
   this.questionspace.text = cset[num][0];
   mset[0].textContent = cset[num][1];
   mset[0].onclick = "showCorrect();";
   for (var x = 0; x <= 3; x++) {
     mset[x].textContent = cset[num][x + 2];
     mset[x].onclick = "showIncorrect();";
+    console.log(mset[x]);
   }
 }
 function shuffleArray(array) {
