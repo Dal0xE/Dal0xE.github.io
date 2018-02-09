@@ -12,6 +12,9 @@ function ContextParser(parsed) {
   this.spacelist = [this.aspace1, this.aspace2, this.aspace3, this.aspace4];
 }
 ContextParser.prototype.setObjects = function(num) {
+  if (num == this.length) {
+    top.showResults();
+  }
   cset = this.set.set;
   mset = shuffleArray(this.spacelist);
   console.log(mset);
