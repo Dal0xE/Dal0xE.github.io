@@ -119,7 +119,7 @@ var parser = new ContextParser(parsedSet);*/
       visible = true;
     }
   }
-  window.showResults() {
+  window.showResults = function() {
     nhash = "#" + correct + "/" + (correct + incorrect);
     location.assign("/results/" + nhash);
   }
