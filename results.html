@@ -30,8 +30,8 @@ body {
 </body>
 <script>
   var cstats = location.hash.split('#')[1];
-  var correct = location.hash.split('/')[0];
-  var total = location.hash.split('/')[1];
+  var correct = cstats.split('/')[0];
+  var total = cstats.split('/')[1];
   var cindicator = document.getElementById("correct");
   cindicator.text = correct;
   var tindicator = document.getElementById("total");
