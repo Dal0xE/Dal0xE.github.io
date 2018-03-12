@@ -11,7 +11,7 @@
     a = new LocalStorageManager();
     c = false;
     b = a.get("btkeyspace");
-    if (b === undefined) {
+    if (b === undefined || b === null) {
       c = true;
     }
     function addKey() {
