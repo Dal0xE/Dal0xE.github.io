@@ -16,10 +16,11 @@
     function addKey() {
       d = document.getElementById("keyp").value;
       if (c) {
-        a.set("btkeyspace", JSON.stringify([d]));
+        a.store("btkeyspace", JSON.stringify([d]));
       }
       else {
-        a.set("btkeyspace", JSON.stringify(JSON.parse(b).push(d)));
+        a.store("btkeyspace", JSON.stringify(JSON.parse(b).push(d)));
+        c = false;
       }
     }
   </script>
