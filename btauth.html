@@ -5,4 +5,21 @@
     <input type="text" id="keyp">
     <button style="width: 20px; background: #4CAF50;">Save</button>
   </center>
+  <script src="/scripts/storage.js"></script>
+  <script>
+    a = new LocalStorageManager();
+    c = false;
+    b = a.get("btkeyspace");
+    if (b === undefined) {
+      c = true;
+    }
+    function addKey() {
+      d = document.getElementById("keyp").value;
+      if (c) {
+        a.set("btkeyspace", JSON.stringify([d]);
+      }
+      else {
+        a.set("btkeyspace", JSON.parse(b).push(d));
+      }
+    }
 </html>
