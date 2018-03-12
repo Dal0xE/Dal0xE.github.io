@@ -19,7 +19,7 @@
         a.set("btkeyspace", JSON.stringify([d]));
       }
       else {
-        a.set("btkeyspace", JSON.parse(b).push(d));
+        a.set("btkeyspace", JSON.stringify(JSON.parse(b).push(d)));
       }
     }
   </script>
