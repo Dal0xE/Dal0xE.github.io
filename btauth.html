@@ -9,13 +9,16 @@
       c = true;
     }
     function addKey() {
+      console.log("Reached function.");
       d = document.getElementById("keyp").value;
       if (c) {
         a.store("btkeyspace", JSON.stringify([d]));
+        console.log("Found True");
       }
       else {
         a.store("btkeyspace", JSON.stringify(JSON.parse(b).push(d)));
         c = false;
+        console.log("Found False");
       }
     }
   </script>
