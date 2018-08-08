@@ -28,23 +28,23 @@ img {
     text-align: center;
 }
 .first {
-    left: 50px;
+    left: 30px;
     top: 140px;
 }
 .second {
-    left: 50px;
+    left: 30px;
     top: 350px;
 }
 .third {
     left: 50%;
-    bottom: 60px;
+    bottom: 40px;
     transform: translate(-50%, 0);
 }
 .fourth {
-    right: 50px;
+    right: 30px;
     top: 140px;
 }
 .fifth {
-    right: 50px;
+    right: 30px;
     top: 350px;
 }
