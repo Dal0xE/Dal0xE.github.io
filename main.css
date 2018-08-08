@@ -1,0 +1,50 @@
+svg {
+    position: absolute;
+    /*display: inline;*/
+    bottom: 50%;
+    left: 50%;
+    transform: translate(-50%, 30%);
+}
+img {
+    position: absolute;
+    /*display: inline;*/
+    bottom: 50%;
+    left: 50%;
+    transform: translate(-52%, 20%);
+}
+.logo {
+    position: absolute;
+    font: 40px Arial;
+    bottom: 34%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+}
+.descriptor {
+    position: absolute;
+    font: 30px Arial;
+    width: 30%;
+    word-wrap: normal;
+    text-align: center;
+}
+.first {
+    left: 80px;
+    top: 140px;
+}
+.second {
+    left: 80px;
+    top: 350px;
+}
+.third {
+    left: 50%;
+    bottom: 100px;
+    transform: translate(-50%, 0);
+}
+.fourth {
+    right: 80px;
+    top: 140px;
+}
+.fifth {
+    right: 80px;
+    top: 350px;
+}
