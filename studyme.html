@@ -147,6 +147,7 @@ var parser = new ContextParser(parsedSet);*/
     var centralFetcher = new XMLHttpRequest();
     centralFetcher.onreadystatechange = postproc;
     centralFetcher.open("GET", "/sets/" + setname, false);
+    console.log("/sets/" + setname);
     centralFetcher.send();
     var parser = new ContextParser(parsedSet);
     parser.setObjects(0);
