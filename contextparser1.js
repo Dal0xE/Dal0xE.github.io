@@ -33,11 +33,11 @@ ContextParser.prototype.setObjects = function(num) {
     this.questionspace.text = cset[num][offset - 1];
     for (var x = 0; x < correctQ; x++) {
         mset[x].textContent = cset[num][x + offset];
-        mset[x].onclick = top.showCorrect();
+        mset[x].onclick = top.showCorrect;
     }
     for (; x < 4; x++) {
         mset[x].textContent = cset[num][x + offset];
-        mset[x].onclick = top.showIncorrect();
+        mset[x].onclick = top.showIncorrect;
     }
 }
 function shuffleArray(array) {
