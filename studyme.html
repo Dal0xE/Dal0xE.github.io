@@ -2,6 +2,7 @@
 <html>
     <head>
         <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+        <link href="circle.css" rel="stylesheet" type="text/css">
         <style>
             .obutton {
                 width: 47.5%;
@@ -141,6 +142,18 @@
             .last {
                 border-bottom: none;
             }
+            .modal-flowleft {
+                margin: 0 auto;
+                box-sizing: border-box;
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: flex-start;
+                height: 100%;
+            }
+            .magic {
+                flex-shrink: 0;
+            }
         </style>
         <title>StudyMe</title>
     </head>
@@ -182,8 +195,13 @@
                 }
             }
             window.showResults = function() {
-                nhash = "#" + correct + "/" + (correct + incorrect);
-                location.assign("/results" + nhash);
+                const a = (Math.round((correct / nquestion) * 100)).toString();
+                document.getElementById("resultcircle").className = "c100 p" + a + " big";
+                document.getElementById("resulttext").textContent = a + "%";
+                showModal("result-report");
+                nquestion = 0;
+                correct = 0;
+                parser.setObjects(0);
             }
             function showModal(name) {
                 document.getElementById("modal").style.display = "block";
@@ -246,6 +264,27 @@
                     <p>
                         Well, traveller of the internet, there's only one thing to do about an empty index file: fill it! Get some sets on your site (there are several freely available sets on the StudyMe parent page) and use our helpful toolchain to put them in your index file. If you need help putting sets in your index file, check out this page for step-by-step instructions on using the StudyMe toolchain.
                     </p>
+                </div>
+            </div>
+            <div class="modal-container" id="modal-result-report">
+                <div class="modal-header">Results <close onclick="closeModal('setselect');">X</close></div>
+                <div class="modal-flowleft">
+                    <div class="magic">
+                        <div class="c100 p50 big" id="resultcircle">
+                            <span id="resulttext">50%</span>
+                            <div class="slice">
+                                <div class="bar"></div>
+                                <div class="fill"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--
+                    <div>
+                        <h1>
+                            Work on these
+                        </h1>
+                    </div>
+                    -->
                 </div>
             </div>
         </div>
