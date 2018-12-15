@@ -5,7 +5,7 @@ Good news! This version of ContextParser is backwards-compatible through version
 function ContextParser(parsed) {
     var setname = location.hash.split("#")[1];
     this.set = parsed;
-    this.version = 1.1;
+    this.version = 1.2;
     this.length = this.set.set.length;
     this.questionspace = document.getElementById("q");
     this.aspace1 = document.getElementById("b1");
@@ -48,4 +48,22 @@ function shuffleArray(array) {
         array[j] = temp;
     }
     return array;
+}
+ContextParser.prototype.fetchAndRender = function(url) {
+    var fetcher = new XMLHttpRequest();
+    fetcher.onreadystatechange = function() {
+        if (this.readyState === 4) {
+            if (this.status === 200) {
+                parsedSet = JSON.parse(this.responseText);
+            }
+            else showModal("set-fetch-fail");
+        }
+    }
+    fetcher.open("GET", url, false);
+    fetcher.send();
+    this.set = parsedSet;
+    this.setObjects(0);
+    nquestion = 0;
+    closeModal("setselect");
+    this.length = this.set.set.length;
 }

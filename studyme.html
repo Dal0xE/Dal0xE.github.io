@@ -1,156 +1,310 @@
 <!DOCTYPE html>
-<link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
-<style>
-.obutton {
-  width: 45%;
-  height: 30%;
-  border-radius: 15px;
-  position: absolute;
-  font-family: 'Ubuntu', sans-serif;
-  color: #ffffff;
-  cursor: pointer;
-  border: none;
-  font-size: 5vh;
-}
-.first {
-  bottom: 66.6%;
-  left: 25%;
-  transform: translate(-50%, 100%);
-  background: #4CAF50;
-}
-.second {
-  bottom: 33.3%;
-  left: 25%;
-  transform: translate(-50%, 100%);
-  background: #FEC908;
-}
-.third {
-  bottom: 66.6%;
-  left: 75%;
-  transform: translate(-50%, 100%);
-  background: #f44336;
-}
-.fourth {
-  bottom: 33.3%;
-  left: 75%;
-  transform: translate(-50%, 100%);
-  background: #2196F3;
-}
-.question {
-  font-size: 7vh;
-  text-align: center;
-  font-family: 'Ubuntu', sans-serif;
-  position: absolute;
-  left: 50%;
-  top: 15%;
-  transform: translate(-50%, -50%);
-}
-.indicator {
-  display: none;
-  height: 100%;
-  width: 100%;
-  position: absolute;
-  border: none;
-}
-body {
-  margin: 0;
-}
-</style>
 <html>
-<head>
-  <title>StudyMe</title>
-</head>
-<body>
-  <script src="/contextparser1.js"></script>
-<script>
-/*Deprecated listener for closing notifiers; potential to reintroduce
-document.addEventListener('custom:event', function() {
-  console.log("F1")
-  hideCorrect();
-});
-*/
-/*var parsedSet = undefined;
-window.postproc = function() {
-  if (this.readyState === 4) {
-    if (this.status != 200) { //Something went wrong
-      //location.replace("/seterror");
-      return;
-    }
-    parsedSet = JSON.parse(this.responseText);
-  }
-}*/
-var correct = 0;
-var incorrect = 0;
-var nquestion = 0;
-/*var setname = location.hash.split('#')[1];
-var centralFetcher = new XMLHttpRequest();
-centralFetcher.onreadystatechange = postproc;
-centralFetcher.open("GET", "/sets/" + setname, false);
-centralFetcher.send();
-var parser = new ContextParser(parsedSet);*/
-  window.showCorrect = function() {
-    var cIndicator = document.getElementById("correct");
-    cIndicator.style.display = "block";
-    correct++;
-  }
-  window.hideCorrect = function() {
-    //console.log("Function reached");
-    var cIndicator = document.getElementById("correct");
-    cIndicator.style.display = "none";
-    nquestion++;
-    parser.setObjects(nquestion);
-  }
-  window.showIncorrect = function() {
-    document.getElementById("incorrect").style.display = "block";
-    incorrect++;
-  }
-  window.hideIncorrect = function() {
-    document.getElementById("incorrect").style.display = "none";
-    nquestion++;
-    parser.setObjects(nquestion);
-  }
-  window.testCorrect = function() {
-    if (visible) {
-      hideCorrect();
-      visible = false;
-    }
-    else {
-      showCorrect();
-      visible = true;
-    }
-  }
-  window.showResults = function() {
-    nhash = "#" + correct + "/" + (correct + incorrect);
-    location.assign("/results" + nhash);
-  }
-  //parser.setObjects(0);
-</script>
-  <button class="obutton first" id="b1" onclick="showCorrect()">Placeholder</button>
-  <button class="obutton second" id="b2">Placeholder</button>
-  <button class="obutton third" id="b3" onclick="showIncorrect()">Placeholder</button>
-  <button class="obutton fourth" id="b4">Placeholder</button>
-  <a class="question" id="q">Placeholder</a>
-  <iframe class="indicator" id="correct" src="/stcorrect.html"></iframe>
-  <iframe class="indicator" id="incorrect" src="/stincorrect.html"></iframe>
-  <script>
-    var parsedSet = undefined;
-    window.postproc = function() {
-      if (this.readyState === 4) {
-        if (this.status != 200) { //Something went wrong
-          //location.replace("/seterror");
-          return;
-        }
-       parsedSet = JSON.parse(this.responseText);
-      }
-    }
-    var setname = location.hash.split('#')[1];
-    var centralFetcher = new XMLHttpRequest();
-    centralFetcher.onreadystatechange = postproc;
-    centralFetcher.open("GET", "/sets/" + setname, false);
-    console.log("/sets/" + setname);
-    centralFetcher.send();
-    var parser = new ContextParser(parsedSet);
-    parser.setObjects(0);
-  </script>
-</body>
+    <head>
+        <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+        <style>
+            .obutton {
+                width: 47.5%;
+                height: 30%;
+                border-radius: 15px;
+                position: absolute;
+                color: #ffffff;
+                cursor: pointer;
+                border: none;
+                font-size: 5vh;
+            }
+            #b1 {
+                bottom: 66.6%;
+                left: 25%;
+                transform: translate(-50%, 100%);
+                background: #4CAF50;
+            }
+            #b2 {
+                bottom: 33.3%;
+                left: 25%;
+                transform: translate(-50%, 100%);
+                background: #FEC908;
+            }
+            #b3 {
+                bottom: 66.6%;
+                left: 75%;
+                transform: translate(-50%, 100%);
+                background: #f44336;
+            }
+            #b4 {
+                bottom: 33.3%;
+                left: 75%;
+                transform: translate(-50%, 100%);
+                background: #2196F3;
+            }
+            .question {
+                font-size: 7vh;
+                text-align: center;
+                position: absolute;
+                left: 50%;
+                top: 15%;
+                transform: translate(-50%, -50%);
+            }
+            .indicator {
+                display: none;
+                height: 100%;
+                width: 100%;
+                position: absolute;
+                border: none;
+            }
+            body {
+                margin: 0;
+                font-family: sans-serif;
+            }
+            #modalToggle {
+                position: absolute;
+                top: 40px;
+                right: 50px;
+                color: gray;
+                font-weight: 300;
+                font-size: 20px;
+                cursor: pointer;
+            }
+            #modal {
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                position: fixed;
+                z-index: 1;
+                background: rgb(0, 0, 0); /*fallback*/
+                background: rgba(0, 0, 0, 0.4);
+                padding: 0;
+                display: none;
+            }
+            .modal-container {
+                margin: 0 auto;
+                height: 70%;
+                width: 800px;
+                background: white;
+                transform: translate(0, 20%);
+                /*Not even sure why the translate works, but don't touch it*/
+                display: none;
+                flex-direction: column;
+            }
+            .modal-container-dev {
+                margin: 0 auto;
+                height: 70%;
+                width: 800px;
+                background: white;
+                transform: translate(0, 20%);
+                /*Not even sure why the translate works, but don't touch it*/
+                display: flex;
+                flex-direction: column;
+            }
+            .modal-header {
+                width: 100%;
+                padding: 15px;
+                background: #2176F3;
+                color: white;
+                font-size: 40px;
+                box-sizing: border-box;
+                flex-shrink: 0;
+            }
+            close {
+                float: right;
+                font-weight: 200;
+                padding-right: 10px;
+                cursor: pointer;
+            }
+            .modal-flowbox {
+                width: 100%;
+                box-sizing: border-box;
+                padding: 20px;
+                height: 100%;
+                color: black;
+                overflow-y: scroll;
+            }
+            h1 {
+                font-size: 40px;
+                margin: 0;
+                font-weight: 300;
+                border-bottom: 1px solid gray;
+                padding-bottom: 4px;
+            }
+            p {
+                font-size: 20px;
+            }
+            .clickableSet {
+                font-size: 50px;
+                border-bottom: 1px solid gray;
+                padding-bottom: 8px;
+                width: 100%;
+                margin-top: 5px;
+                cursor: pointer;
+            }
+            .last {
+                border-bottom: none;
+            }
+        </style>
+        <title>StudyMe</title>
+    </head>
+    <body>
+        <script src="/contextparser1.js"></script>
+        <script>
+            var correct = 0;
+            var incorrect = 0;
+            var nquestion = 0;
+            window.showCorrect = function() {
+                var cIndicator = document.getElementById("correct");
+                cIndicator.style.display = "block";
+                correct++;
+            }
+            window.hideCorrect = function() {
+                //console.log("Function reached");
+                var cIndicator = document.getElementById("correct");
+                cIndicator.style.display = "none";
+                nquestion++;
+                parser.setObjects(nquestion);
+            }
+            window.showIncorrect = function() {
+                document.getElementById("incorrect").style.display = "block";
+                incorrect++;
+            }
+            window.hideIncorrect = function() {
+                document.getElementById("incorrect").style.display = "none";
+                nquestion++;
+                parser.setObjects(nquestion);
+            }
+            window.testCorrect = function() {
+                if (visible) {
+                    hideCorrect();
+                    visible = false;
+                }
+                else {
+                    showCorrect();
+                    visible = true;
+                }
+            }
+            window.showResults = function() {
+                nhash = "#" + correct + "/" + (correct + incorrect);
+                location.assign("/results" + nhash);
+            }
+            function showModal(name) {
+                document.getElementById("modal").style.display = "block";
+                document.getElementById("modal-" + name).style.display = "flex";
+            }
+            function closeModal(name) {
+                document.getElementById("modal").style.display = "none";
+                document.getElementById("modal-" + name).style.display = "none";
+            }
+            //Not defining things makes the world go 'round
+            var parsedSet = undefined;
+            var hashFetchSuccess = undefined;
+            var setFetcher = undefined;
+            var parser = undefined;
+            //parser.setObjects(0);
+        </script>
+        <a id="modalToggle" onclick="showModal('setselect');">
+            • • •
+        </a>
+        <div id="modal">
+            <div class="modal-container" id="modal-setselect">
+                <div class="modal-header">Select Set <close onclick="closeModal('setselect');">X</close></div>
+                <div class="modal-flowbox" id="setSelectList"></div>
+            </div>
+            <div class="modal-container" id="modal-retrieve-error">
+                <div class="modal-header">Error</div>
+                <div class="modal-flowbox">
+                    <h1>
+                        Something went wrong.
+                    </h1>
+                    <p>
+                        There are three different ways StudyMe tries to figure out which set to use and where that set is. If it doesn't find any of those three methods to be successful, you'll see this message trying to help you figure out how to get rid of it.
+                    </p>
+                    <h1>
+                        How do I fix this?
+                    </h1>
+                    <p>
+                        If you are an administrator for this site, you can give your site an index file to automagically open the set selection dialogue, and set a default to automagically open that set when StudyMe loads. This article should help you figure out how to do that and which approach is best for you, as well as help you set up some backup endpoints for StudyMe to use in the event that your main endpoint stops responding. If you aren't an administrator, contact one and let them know you're seeing this message.
+                    </p>
+                    <h1>
+                        Can I get rid of this message?
+                    </h1>
+                    <p>
+                        'Fraid not, friendly internet user. The only way to get rid of this message is to fix the underlying problem that caused StudyMe to present it to you.
+                    </p>
+                </div>
+            </div>
+            <div class="modal-container" id="modal-empty-index">
+                <div class="modal-header">Error</div>
+                <div class="modal-flowbox">
+                    <h1>
+                        Something went wrong.
+                    </h1>
+                    <p>
+                        Good job! Your site has an index file. There's just one problem: it's empty. Empty doesn't necessarily mean there isn't any text in it, but it does mean that there aren't any sets in it. And an index file without sets in it is useless.
+                    </p>
+                    <h1>
+                        What can I do?
+                    </h1>
+                    <p>
+                        Well, traveller of the internet, there's only one thing to do about an empty index file: fill it! Get some sets on your site (there are several freely available sets on the StudyMe parent page) and use our helpful toolchain to put them in your index file. If you need help putting sets in your index file, check out this page for step-by-step instructions on using the StudyMe toolchain.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <button class="obutton" id="b1" onclick="showCorrect()">
+            Placeholder
+        </button>
+        <button class="obutton" id="b2">
+            Placeholder
+        </button>
+        <button class="obutton" id="b3" onclick="showIncorrect()">
+            Placeholder
+        </button>
+        <button class="obutton" id="b4">
+            Placeholder
+        </button>
+        <a class="question" id="q">
+            Placeholder
+        </a>
+        <iframe class="indicator" id="correct" src="/stcorrect.html"></iframe>
+        <iframe class="indicator" id="incorrect" src="/stincorrect.html"></iframe>
+        <script src="setSelectEngine.js"></script>
+        <script>
+            window.postproc = function() {
+                if (this.readyState === 4) {
+                    if (this.status != 200) { //Something went wrong
+                        hashFetchSuccess = false;
+                        return;
+                    }
+                    hashFetchSuccess = true;
+                    parsedSet = JSON.parse(this.responseText);
+                }
+            }
+            function indexFetchReturned() {
+                if (this.readyState === 4) {
+                    if (this.status === 200) {
+                        console.log("Index returned successfully.");
+                        document.getElementById("modalToggle").style.display = "block";
+                        setFetcher = new setSelectEngine(JSON.parse(this.responseText));
+                        setFetcher.render();
+                        if (hashFetchSuccess === false || hashFetchSuccess === undefined) showModal("setselect");
+                    }
+                    else if (!hashFetchSuccess) {
+                        showModal("retrieve-error");
+                    }
+                }
+            }
+            var setname = location.hash.split('#')[1];
+            var centralFetcher = new XMLHttpRequest();
+            if (setname != undefined) {
+                centralFetcher.onreadystatechange = postproc;
+                centralFetcher.open("GET", "/sets/" + setname, false);
+                console.log("/sets/" + setname);
+                centralFetcher.send();
+                parser = new ContextParser(parsedSet);
+                parser.setObjects(0);
+            }
+            centralFetcher.onreadystatechange = indexFetchReturned;
+            centralFetcher.open("GET", "/index.cof", false);
+            centralFetcher.send();
+        </script>
+    </body>
 </html>
