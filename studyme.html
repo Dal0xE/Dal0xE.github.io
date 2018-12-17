@@ -142,17 +142,31 @@
             .last {
                 border-bottom: none;
             }
-            .modal-flowleft {
-                margin: 0 auto;
+            .questionlist {
+                width: 100%;
+                font-size: 30px;
                 box-sizing: border-box;
-                display: flex;
-                flex-direction: row;
-                align-items: center;
-                justify-content: flex-start;
-                height: 100%;
+                padding: 20px;
             }
-            .magic {
-                flex-shrink: 0;
+            .qcorrect {
+                width: 100%;
+                border-left: 5px solid #4CAF50;
+                box-sizing: border-box;
+                padding: 5px;
+                margin-top: 12px;
+            }
+            .qincorrect {
+                width: 100%;
+                border-left: 5px solid #f44336;
+                box-sizing: border-box;
+                padding: 5px;
+                margin-top: 12px;
+            }
+            #resultcircle {
+                float: none;
+                left: 50%;
+                transform: translate(-50%, 0);
+                margin-top: 50px;
             }
         </style>
         <title>StudyMe</title>
@@ -163,10 +177,13 @@
             var correct = 0;
             var incorrect = 0;
             var nquestion = 0;
+            var activeTimer = undefined;
             window.showCorrect = function() {
                 var cIndicator = document.getElementById("correct");
                 cIndicator.style.display = "block";
                 correct++;
+                activeTimer = setTimeout(hideCorrect, 1000);
+                parser.renderQuestionCorrect(nquestion);
             }
             window.hideCorrect = function() {
                 //console.log("Function reached");
@@ -174,15 +191,19 @@
                 cIndicator.style.display = "none";
                 nquestion++;
                 parser.setObjects(nquestion);
+                clearTimeout(activeTimer);
             }
             window.showIncorrect = function() {
                 document.getElementById("incorrect").style.display = "block";
                 incorrect++;
+                activeTimer = setTimeout(hideIncorrect, 1000);
+                parser.renderQuestionIncorrect(nquestion);
             }
             window.hideIncorrect = function() {
                 document.getElementById("incorrect").style.display = "none";
                 nquestion++;
                 parser.setObjects(nquestion);
+                clearTimeout(activeTimer);
             }
             window.testCorrect = function() {
                 if (visible) {
@@ -210,6 +231,12 @@
             function closeModal(name) {
                 document.getElementById("modal").style.display = "none";
                 document.getElementById("modal-" + name).style.display = "none";
+            }
+            function killAllResultList() {
+                var a = document.getElementById("ql");
+                while (a.firstChild) {
+                    a.removeChild(a.firstChild);
+                }
             }
             //Not defining things makes the world go 'round
             var parsedSet = undefined;
@@ -267,24 +294,19 @@
                 </div>
             </div>
             <div class="modal-container" id="modal-result-report">
-                <div class="modal-header">Results <close onclick="closeModal('result-report');">X</close></div>
-                <div class="modal-flowleft">
-                    <div class="magic">
+                <div class="modal-header">Results <close onclick="closeModal('result-report'); killAllResultList();">X</close></div>
+                <div class="modal-flowbox">
+                    <div style="width: 100%;">
                         <div class="c100 p50 big" id="resultcircle">
-                            <span id="resulttext">50%</span>
+                            <span id="resulttext" style="color: black;">50%</span>
                             <div class="slice">
                                 <div class="bar"></div>
                                 <div class="fill"></div>
                             </div>
                         </div>
                     </div>
-                    <!--
-                    <div>
-                        <h1>
-                            Work on these
-                        </h1>
+                    <div class="questionlist" id="ql">
                     </div>
-                    -->
                 </div>
             </div>
         </div>

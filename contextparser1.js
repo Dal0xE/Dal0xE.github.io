@@ -13,6 +13,7 @@ function ContextParser(parsed) {
     this.aspace3 = document.getElementById("b3");
     this.aspace4 = document.getElementById("b4");
     this.spacelist = [this.aspace1, this.aspace2, this.aspace3, this.aspace4];
+    this.incorrectList = [];
 }
 ContextParser.prototype.setObjects = function(num) {
     if (num == this.length) {
@@ -66,4 +67,26 @@ ContextParser.prototype.fetchAndRender = function(url) {
     nquestion = 0;
     closeModal("setselect");
     this.length = this.set.set.length;
+}
+ContextParser.prototype.renderQuestionIncorrect = function(num) {
+    console.log("Question rendered incorrect.");
+    var a = document.createElement("div");
+    a.className = "qincorrect";
+    var c = this.set.set[num];
+    if (typeof c[0] === "string") var qpos = 0;
+    else var qpos = 1;
+    var b = document.createTextNode(c[qpos]);
+    a.appendChild(b);
+    document.getElementById("ql").appendChild(a);
+}
+ContextParser.prototype.renderQuestionCorrect = function(num) {
+    console.log("Question rendered correct.");
+    var a = document.createElement("div");
+    a.className = "qcorrect";
+    var c = this.set.set[num];
+    if (typeof c[0] === "string") var qpos = 0;
+    else var qpos = 1;
+    var b = document.createTextNode(c[qpos]);
+    a.appendChild(b);
+    document.getElementById("ql").appendChild(a);
 }
