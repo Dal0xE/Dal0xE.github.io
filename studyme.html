@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
         <link href="circle.css" rel="stylesheet" type="text/css">
         <style>
             .obutton {
@@ -178,28 +177,33 @@
             var incorrect = 0;
             var nquestion = 0;
             var activeTimer = undefined;
+            var lastWindowClose = 0;
             window.showCorrect = function() {
+                if (Date.now() - lastWindowClose <= 100) return;
                 var cIndicator = document.getElementById("correct");
                 cIndicator.style.display = "block";
                 correct++;
-                activeTimer = setTimeout(hideCorrect, 1000);
+                activeTimer = setTimeout(hideCorrect, 700);
                 parser.renderQuestionCorrect(nquestion);
             }
             window.hideCorrect = function() {
-                //console.log("Function reached");
+                lastWindowClose = Date.now();
                 var cIndicator = document.getElementById("correct");
                 cIndicator.style.display = "none";
                 nquestion++;
                 parser.setObjects(nquestion);
                 clearTimeout(activeTimer);
+                
             }
             window.showIncorrect = function() {
+                if (Date.now() - lastWindowClose <= 100) return;
                 document.getElementById("incorrect").style.display = "block";
                 incorrect++;
-                activeTimer = setTimeout(hideIncorrect, 1000);
+                activeTimer = setTimeout(hideIncorrect, 700);
                 parser.renderQuestionIncorrect(nquestion);
             }
             window.hideIncorrect = function() {
+                lastWindowClose = Date.now();
                 document.getElementById("incorrect").style.display = "none";
                 nquestion++;
                 parser.setObjects(nquestion);
