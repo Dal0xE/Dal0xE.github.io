@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:300" rel="stylesheet">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title> Title </title>
+        <style>
+            html, body {
+                padding: 0;
+                margin: 0;
+            }
+            .header {
+                width: 100%;
+                height: 900px;
+                background: #191414; /*black, but a nice black.*/
+                transform: skewY(-12DEG);
+                transform-origin: 0;
+                top:0;
+            }
+            .main-topic {
+                position: absolute;
+                z-index: 2;
+                color: #FFFFFF;
+                font-family: "Montserrat", sans-serif;
+                font-size: 300px;
+                left: 100px;
+                top: 60px;
+            }
+            .subtext {
+                font-size: 50px;
+            }
+            .text-black {
+                color: #191414;
+                font-family: "Montserrat", sans-serif;
+            }
+            .feature-area {
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+            }
+            .feature-area-topic {
+                padding-right: 60px;
+                margin-left: auto;
+            }
+            .feature-area-text {
+                padding-right: 60px;
+                width: 50%;
+                font-size: 24px;
+                margin-left: auto;
+                margin-top: 20px;
+                text-align: right;
+                line-height: 1.4em;
+            }
+            .diagonal-right {
+                width: 100%;
+                height: 700px;
+                background: #191414; /*black, but a nice black.*/
+                transform: skewY(-12DEG);
+                transform-origin: 0;
+            }
+            #accent-diagonal {
+                transform: skewY(15DEG);
+                background: #9d9999;
+                height: 700px;
+                z-index: 0;
+                position: absolute;
+                top: 1400px;
+                width: 100%;
+            }
+            #webcc-feature {
+                justify-content: center;
+                position: absolute;
+                top: 1600px;
+                color: white;
+            }
+            #webcc-feature-text {
+                text-align: center;
+                margin: 0 auto;
+                margin-top: 20px;
+            }
+            .text-white {
+                color: #FFFFFF;
+                font-family: "Montserrat", sans-serif;
+            }
+            .content-left {
+                padding-left: 60px;
+                margin-left: 0;
+                margin-right: auto;
+                text-align: left;
+            }
+            .footer {
+                background: #191414;
+                box-sizing: border-box;
+                padding: 20px;
+                font-size: 24px;
+                width: 100%;
+                margin-top: 50px;
+            }
+            #love-footer {
+                float: right;
+            }
+        </style>
+    </head>
+
+	<body>
+        <div class="main-topic">
+            Milo
+            <div class="subtext">The next generation of robot software.</div>
+        </div>
+        <div class="header"></div>
+        <div id="accent-diagonal"></div>
+        <div class="feature-area">
+            <a class="text-black subtext feature-area-topic">Made with Iron</a>
+            <a class="text-black feature-area-text" style="margin-bottom: 400px;">Iron is our in-house, highly advanced modular robot control software providing us with fine-grained control over every aspect of our robot on the field. Things like adaptive speed control, positioning data, and automatic rollover from autonomous mode to teleop mode are built-in from the get-go.</a>
+        </div>
+        <div class="diagonal-right"></div>
+        <div id="webcc-feature" class="feature-area">
+            <a class="text-white subtext" style="margin: 0 auto;">WebCC Enhanced</a>
+            <a class="text-white feature-area-text" id="webcc-feature-text">WebCC, our in-house web-based control system, has been added and enhanced to provide an extensive set of utilities for robot customization and development.</a>
+        </div>
+        <div class="feature-area" style="margin-top: 90px;">
+            <a class="text-black subtext feature-area-topic content-left">Field Playback</a>
+            <a class="text-black feature-area-text content-left">Create a full-feature autonomous mode just by driving your robot where it needs to go. Together with tools provided by Iron, Field Playback records the actual position of your robot on the field, and how you got there. With the new addition of Drive Hooks, you can even add in complex behaviors like object detection and dynamic movement based on field conditions.</a>
+        </div>
+        <div class="footer text-white">
+            <a style="margin-left: 0 auto;">Made with ♡ by Dallas C.</a>
+        </div>
+    </body>
+    
+</html>
