@@ -7,15 +7,17 @@
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title> Title </title>
         <style>
+            :root {
+                --accent: #191414;
+            }
             html, body {
                 padding: 0;
                 margin: 0;
-		font-weight: 300;
             }
             .header {
                 width: 100%;
                 height: 900px;
-                background: #191414; /*black, but a nice black.*/
+                background: var(--accent); /*black, but a nice black.*/
                 transform: skewY(-12DEG);
                 transform-origin: 0;
                 top:0;
@@ -33,7 +35,7 @@
                 font-size: 50px;
             }
             .text-black {
-                color: #191414;
+                color: var(--accent);
                 font-family: "Montserrat", sans-serif;
             }
             .feature-area {
@@ -57,8 +59,8 @@
             .diagonal-right {
                 width: 100%;
                 height: 700px;
-                background: #191414; /*black, but a nice black.*/
-                transform: skewY(-12DEG);
+                background: var(--accent); /*black, but a nice black.*/
+                transform: skewY(-12DEG) translate(0, 25%);
                 transform-origin: 0;
             }
             #accent-diagonal {
@@ -66,14 +68,18 @@
                 background: #9d9999;
                 height: 700px;
                 z-index: 0;
+                /*position: absolute;
+                top: 1400px;*/
                 position: absolute;
-                top: 1400px;
+                top: 100;
                 width: 100%;
             }
             #webcc-feature {
                 justify-content: center;
                 position: absolute;
-                top: 1600px;
+                /*top: 1600px;*/
+                top: 0;
+                transform: translate(0, 100%);
                 color: white;
             }
             #webcc-feature-text {
@@ -92,7 +98,7 @@
                 text-align: left;
             }
             .footer {
-                background: #191414;
+                background: var(--accent);
                 box-sizing: border-box;
                 padding: 20px;
                 font-size: 24px;
@@ -102,6 +108,95 @@
             #love-footer {
                 float: right;
             }
+            .multi-item-container {
+                display: flex;
+                justify-content: space-evenly;
+                flex-wrap: wrap;
+                width: 100%;
+                box-sizing: border-box;
+                padding: 30px;
+                margin-top: 60px;
+            }
+            .hanging-item {
+                width: 300px;
+                display: flex;
+                align-items: center;
+                background: white;
+                position: relative;
+                box-sizing: border-box;
+                /*overflow: hidden;*/
+                margin-left: 15px;
+                margin-right: 15px;
+                margin-top: 70px;
+            }
+            /*.hanging-item:after {
+                content: '';
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 0;
+                height: 0;
+                border-style: solid;
+                border-width: 50px 300px 0 0;
+                border-color: var(--accent) transparent transparent transparent;
+                margin-bottom: -50px;
+            }
+            .hanging-item:before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 0;
+                height: 0;
+                border-style: solid;
+                border-width: 0 0 50px 300px;
+                border-color: transparent transparent var(--accent) transparent;
+                margin-top: -50px;
+            }*/
+            .hanging-item::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 0;
+                height: 0;
+                border-style: solid;
+                border-width: 0 150px 40px 150px;
+                border-color: transparent transparent #191414 transparent;
+                margin-top: -40px;
+            }
+            .hanging-item::after {
+                content: '';
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 0;
+                height: 0;
+                border-style: solid;
+                border-width: 40px 150px 0 150px;
+                border-color: var(--accent) transparent transparent transparent;
+                margin-bottom:  -40px;
+            }
+            .hanging-item diagonal {
+                position: absolute;
+                top: 0;
+                left: 0;
+                background: var(--accent);
+                transform: skewY(-6DEG);
+                height: 100px;
+                width: 100%;
+                transform-origin: left;
+            }
+            .hanging-item diagonal-bottom {
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                background: var(--accent);
+                transform: skewY(-6DEG);
+                height: 100px;
+                width: 100%;
+                transform-origin: right;
+            }
         </style>
     </head>
 
@@ -110,21 +205,40 @@
             Milo
             <div class="subtext">The next generation of robot software.</div>
         </div>
-        <div class="header"></div>
-        <div id="accent-diagonal"></div>
+        <div class="header">
+            <!--
+            <div style="background: #ba9832; height: 100px; width: 100%; position: absolute; top: 40%;"></div>
+            -->
+        </div>
         <div class="feature-area">
             <a class="text-black subtext feature-area-topic">Made with Iron</a>
-            <a class="text-black feature-area-text" style="margin-bottom: 400px;">Iron is our in-house, highly advanced modular robot control software providing us with fine-grained control over every aspect of our robot on the field. Things like adaptive speed control, positioning data, and automatic rollover from autonomous mode to teleop mode are built-in from the get-go.</a>
+            <a class="text-black feature-area-text">Iron is our in-house, highly advanced modular robot control software providing us with fine-grained control over every aspect of our robot on the field. Things like adaptive speed control, positioning data, and automatic rollover from autonomous mode to teleop mode are built-in from the get-go.</a>
         </div>
-        <div class="diagonal-right"></div>
-        <div id="webcc-feature" class="feature-area">
-            <a class="text-white subtext" style="margin: 0 auto;">WebCC Enhanced</a>
-            <a class="text-white feature-area-text" id="webcc-feature-text">WebCC, our in-house web-based control system, has been added and enhanced to provide an extensive set of utilities for robot customization and development.</a>
+        <div style="position: relative; margin-top: 250px; margin-bottom: 250px;">
+            <div id="accent-diagonal"></div>
+            <div class="diagonal-right"></div>
+            <div id="webcc-feature" class="feature-area">
+                <a class="text-white subtext" style="margin: 0 auto;">WebCC Enhanced</a>
+                <a class="text-white feature-area-text" id="webcc-feature-text">WebCC, our in-house web-based control system, has been added and enhanced to provide an extensive set of utilities for robot customization and development.</a>
+            </div>
         </div>
         <div class="feature-area" style="margin-top: 90px;">
             <a class="text-black subtext feature-area-topic content-left">Field Playback</a>
             <a class="text-black feature-area-text content-left">Create a full-feature autonomous mode just by driving your robot where it needs to go. Together with tools provided by Iron, Field Playback records the actual position of your robot on the field, and how you got there. With the new addition of Drive Hooks, you can even add in complex behaviors like object detection and dynamic movement based on field conditions.</a>
         </div>
+        <!--
+        <div class="multi-item-container">
+            <div class="hanging-item">
+                <a class="text-black subtext" style="text-align: center;">More About Field Playback</a>
+            </div>
+            <div class="hanging-item">
+                <a class="text-black subtext" style="text-align: center;">More About Iron</a>
+            </div>
+            <div class="hanging-item">
+                <a class="text-black subtext" style="text-align: center;">More About WebCC</a>
+            </div>
+        </div>
+        -->
         <div class="footer text-white">
             <a style="margin-left: 0 auto;">Made with ♡ by Dallas C.</a>
         </div>
