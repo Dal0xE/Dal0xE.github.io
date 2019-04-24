@@ -21,7 +21,7 @@
                 transform: skewY(-12DEG);
                 transform-origin: 0;
                 top:0;
-                margin-top: -100px;
+                margin-top: -60px;
             }
             .main-topic {
                 position: absolute;
@@ -87,6 +87,7 @@
                 text-align: center;
                 margin: 0 auto;
                 margin-top: 20px;
+                padding: 0;
             }
             .text-white {
                 color: #FFFFFF;
@@ -199,12 +200,12 @@
                 transform-origin: right;
             }
             .mbar {
-                width: 80px;
+                width: 40px;
                 background: #FFFFFF;
-                height: 5px;
+                height: 2px;
                 position: relative;
             }
-            .mbar::before {
+            /*.mbar::before {
                 content: "";
                 position: absolute;
                 left: 0;
@@ -225,7 +226,7 @@
                 border-width: 2.5px 0 2.5px 5px;
                 border-color: transparent transparent transparent #FFFFFF;
                 margin-right: -5px;
-            }
+            }*/
             #navicon {
                 display: flex;
                 opacity: 0;
@@ -233,8 +234,8 @@
                 position: sticky;
                 top: 20px;
                 left: 20px;
-                height: 100px;
-                width: 100px;
+                height: 60px;
+                width: 60px;
                 background: var(--accent);
                 z-index: 20;
                 flex-direction: column;
@@ -252,25 +253,81 @@
             }
             .fadein {
                 animation: 1s linear fade-in;
-                
+            }
+            .nav-side {
+                width: 300px;
+                display: flex;
+                flex-direction: column;
+                overflow-y: scroll;
+                margin-left: -350px;
+                height: 100%;
+                box-sizing: border-box;
+                padding: 20px;
+                background: var(--accent);
+                position: fixed;
+                top: 0;
+                left: 0;
+                z-index: 50;
+            }
+            /*.nav-side::after {
+                content: '';
+                height: 50px;
+                width: 50px;
+                position: absolute;
+                top: 0;
+                right: 0;
+                margin-right: -50px;
+                display: flex;
+                align-items: center;
+                justify-content: space-around;
+                background: var(--accent);
+                z-index: 50;
+            }*/
+            .nav-side a {
+                content: '';
+                margin-bottom: 20px;
+                font-family: 'Montserrat', sans-serif;
+                font-size: 40px;
+                color: white;
+                cursor: pointer;
+            }
+            #coverview {
+                position: static;
+                opacity: .3;
+                color: black;
+                height: 100vh;
+                width: 100vw;
+                top: 0;
+                left: 0;
+                display: none;
+                z-index: 40;
+            }
+            @keyframes popout {
+                from {
+                    margin-left: -350px;
+                }
+                to {
+                    margin-left: 0;
+                }
+            }
+            @keyframes popback {
+                from {
+                    margin-left: 0;
+                }
+                to {
+                    margin-left: -350px;
+                }
+            }
+            .popleft {
+                animation: .7s linear popout;
+            }
+            .popback {
+                animation: .7s linear popback;
             }
         </style>
     </head>
 
 	<body>
-        <script>
-            var hasScrolled = false;
-            window.addEventListener("scroll", function(e) {
-                if (!(window.scrollTop === 0) && !hasScrolled) {
-                    var a = document.getElementById("navicon");
-                    a.className = "fadein";
-                    a.addEventListener("animationend", function(e) {
-                        a.style.opacity = "1";
-                    });
-                    hasScrolled = true;
-                }
-            });
-        </script>
         <div class="main-topic">
             Milo
             <div class="subtext" style="z-index: 21">The next generation of robot software.</div>
@@ -278,6 +335,12 @@
         <div id="navicon">
             <a class="mbar"></a>
             <a class="mbar"></a>
+            <a class="mbar"></a>
+        </div>
+        <div class="nav-side" id="sidenav">
+            <a>Home</a>
+            <a>Outreach</a>
+            <a>Media</a>
         </div>
         <div class="header" id="header-slant">
             <!--
@@ -316,6 +379,56 @@
         <div class="footer text-white">
             <a style="margin-left: 0 auto;">Made with ♡ by Dallas C.</a>
         </div>
+        <script>
+            var hasScrolled = false;
+            window.addEventListener("scroll", function(e) {
+                if (!(window.scrollTop === 0) && !hasScrolled) {
+                    var a = document.getElementById("navicon");
+                    a.className = "fadein";
+                    a.addEventListener("animationend", function(e) {
+                        a.style.opacity = "1";
+                    });
+                    hasScrolled = true;
+                }
+            });
+            document.getElementById("navicon").addEventListener("click", (e) => {
+                var a = document.getElementById("sidenav");
+                if (a.style.marginLeft === "0") {
+                    a.style.marginLeft = "-350px";
+                }
+                else {
+                    a.className = "nav-side popleft";
+                    a.addEventListener("animationend", function(e) {
+                        a.style.marginLeft = "0";
+                    });
+                    window.setTimeout(() => { hideOnClickOutside(a); console.log("Listener attached"); }, 300);
+                }
+            });
+            function hideOnClickOutside(element) {
+                const outsideClickListener = event => {
+                    console.log("Listener hit");
+                    if (!element.contains(event.target) && isVisible(element)) { // or use: event.target.closest(selector) === null
+                        console.log("Listener engaged");
+                        if (element.classList.contains("popleft")) {
+                            element.classList.replace("popleft", "popback");
+                            element.addEventListener("animationend", (e) => {
+                                element.style.marginLeft = "-350px";
+                            });
+                        }
+                        else element.style.marginLeft = "-350px";
+                        removeClickListener();
+                    }
+                }
+
+                const removeClickListener = () => {
+                    document.removeEventListener('click', outsideClickListener);
+                }
+                document.addEventListener('click', outsideClickListener);
+            }
+            function isVisible(element) {
+                return !(element.style.marginLeft === "-350px");
+            }
+        </script>
     </body>
     
 </html>
