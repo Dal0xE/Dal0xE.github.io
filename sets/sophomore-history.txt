@@ -1,1 +1,1 @@
-
+{"version":1.1,"set":[["These tribes dominated Arabian landscape prior to Islam unifying many of them.","Bedouins","Umayyads","Rashiduns","Meccans"],["Major center of religion and trade in the Islamic world.","Mecca","Medina","Jerusalem","Damascus"],["What does Kaaba translate to?","The Cube","The rightly guided","The Meteorite","The Holy Place"],[4,"Why did the chicken cross the road?","The world may never know","To get to the other side","Because it was bored","To ponder the meaning of life"]]}
