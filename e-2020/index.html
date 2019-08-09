@@ -17,6 +17,7 @@
             padding: 0;
             margin: 0;
             font-family: 'Montserrat', sans-serif;
+            color: #141419
         }
         
         :root {
@@ -25,9 +26,14 @@
         }
 
         #head-container {
-            height: 700px;
+            top: 0;
+            left: 0;
+            height: 100vh;
+            width: 100vw;
             display: flex;
             flex-direction: row;
+            position: fixed;
+            z-index: 0;
         }
 
         #head-container div {
@@ -47,21 +53,29 @@
         }
         .party-logo {
             width: 60%;
-            z-index: 0;
+            z-index: 2;
         }
         #body-container {
+            margin-top: 100vh;
             display: flex;
             box-sizing: border-box;
             flex-direction: row;
             padding-top: 70px;
             padding-bottom: 70px;
             width: 100%;
+            justify-content: space-between;
+            align-items: flex-start;
         }
         [list] {
             display: flex;
             flex-direction: column;
             align-items: center;
-            width: 50%;
+            width: 33%;
+            background: white;
+            z-index: 5;
+            box-sizing: border-box;
+            padding-bottom: 50px;
+            box-shadow: 5px 10px 5px rgba(0, 0, 0, .4);
         }
          
         #central-divide {
@@ -72,13 +86,16 @@
         }
         
         .candidate-card {
-            min-width: 60%;
+            min-width: 70%;
+            max-width: 70%;
             min-height: 20px;
             box-sizing: border-box;
             padding: 20px;
             padding-left: 40px;
             border-radius: 20px;
             position: relative;
+            margin-top: 50px;
+            cursor: pointer;
         }
         .candidate-image {
             height: 70px;
@@ -99,6 +116,9 @@
         }
         .c-name {
             font-size: 30px;
+        }
+        .desc {
+            font-size: 15px;
         }
 
     </style>
@@ -143,17 +163,146 @@
     </div>
     
     <div id="body-container">
-        <div list>
+        <div list style="margin-left: 8.5%;">
             <div class="candidate-card republican">
                 <img class="candidate-image" src="donald-trump.jpg">
                 <a class="c-name">Donald Trump</a>
+                <br>
+                <a class="desc">criminalized immigration • anti-abortion • private healthcare</a>
+            </div>
+            <div class="candidate-card republican">
+                <img class="candidate-image">
+                <a class="c-name">Mike Pence</a>
+                <br>
+                <a class="desc">criminalized immigration • anti-abortion • private healthcare</a>
+            </div>
+            <div class="candidate-card republican">
+                <img class="candidate-image">
+                <a class="c-name">Bill Weld</a>
+                <br>
+                <a class="desc">criminalized immigration • anti-abortion • private healthcare</a>
+            </div>
+            <div class="candidate-card republican">
+                <img class="candidate-image">
+                <a class="c-name">Nikki Haley</a>
+                <br>
+                <a class="desc">criminalized immigration • anti-abortion • private healthcare</a>
+            </div>
+            <div class="candidate-card republican">
+                <img class="candidate-image">
+                <a class="c-name">Tom Cotton</a>
+                <br>
+                <a class="desc">criminalized immigration • anti-abortion • private healthcare</a>
+            </div>
+            <div class="candidate-card republican">
+                <img class="candidate-image">
+                <a class="c-name">Ben Sasse</a>
+                <br>
+                <a class="desc">criminalized immigration • anti-abortion • private healthcare</a>
+            </div>
+            <div class="candidate-card republican">
+                <img class="candidate-image">
+                <a class="c-name">Ted Cruz</a>
+                <br>
+                <a class="desc">criminalized immigration • anti-abortion • private healthcare</a>
+            </div>
+            <div class="candidate-card republican">
+                <img class="candidate-image">
+                <a class="c-name">Bob Corker</a>
+                <br>
+                <a class="desc">criminalized immigration • anti-abortion • private healthcare</a>
+            </div>
+            <div class="candidate-card republican">
+                <img class="candidate-image">
+                <a class="c-name">John Kasich</a>
+                <br>
+                <a class="desc">criminalized immigration • anti-abortion • private healthcare</a>
+            </div>
+            <div class="candidate-card republican">
+                <img class="candidate-image">
+                <a class="c-name">Marco Rubio</a>
+                <br>
+                <a class="desc">criminalized immigration • anti-abortion • private healthcare</a>
+            </div>
+            <div class="candidate-card republican">
+                <img class="candidate-image">
+                <a class="c-name">Mark Cuban</a>
+                <br>
+                <a class="desc">criminalized immigration • anti-abortion • private healthcare</a>
+            </div>
+            <div class="candidate-card republican">
+                <img class="candidate-image">
+                <a class="c-name">Mark Sanford</a>
+                <br>
+                <a class="desc">criminalized immigration • anti-abortion • private healthcare</a>
             </div>
         </div>
-        <a id="central-divide"></a>
-        <div list>
+        <div list style="margin-right: 8.5%">
             <div class="candidate-card democratic">
                 <img class="candidate-image" src="elizabeth-warren.webp">
                 <a class="c-name">Elizabeth Warren</a>
+                <br>
+                <a class="desc">universal healthcare • decriminalize immigration</a>
+            </div>
+            <div class="candidate-card democratic">
+                <img class="candidate-image">
+                <a class="c-name">Joe Biden</a>
+                <br>
+                <a class="desc">universal healthcare • decriminalize immigration</a>
+            </div>
+            <div class="candidate-card democratic">
+                <img class="candidate-image">
+                <a class="c-name">Michael Bennet</a>
+                <br>
+                <a class="desc">hybridized healthcare • decriminalize immigration</a>
+            </div>
+            <div class="candidate-card democratic">
+                <img class="candidate-image">
+                <a class="c-name">Cory Booker</a>
+                <br>
+                <a class="desc">universal healthcare • decriminalize immigration</a>
+            </div>
+            <div class="candidate-card democratic">
+                <img class="candidate-image">
+                <a class="c-name">Steve Bullock</a>
+                <br>
+                <a class="desc">universal healthcare • decriminalize immigration</a>
+            </div>
+            <div class="candidate-card democratic">
+                <img class="candidate-image">
+                <a class="c-name">Pete Buttigieg</a>
+                <br>
+                <a class="desc">universal healthcare • decriminalize immigration</a>
+            </div>
+            <div class="candidate-card democratic">
+                <img class="candidate-image">
+                <a class="c-name">Julian Castro</a>
+                <br>
+                <a class="desc">universal healthcare • decriminalize immigration</a>
+            </div>
+            <div class="candidate-card democratic">
+                <img class="candidate-image">
+                <a class="c-name">John Delaney</a>
+                <br>
+                <a class="desc">universal healthcare • decriminalize immigration</a>
+            </div>
+            <div class="candidate-card democratic">
+                <img class="candidate-image">
+                <a class="c-name">Tulsi Gabbard</a>
+                <br>
+                <a class="desc">universal healthcare • decriminalize immigration</a>
+            </div>
+            <div class="candidate-card democratic">
+                <img class="candidate-image">
+                <a class="c-name">Kirsten Gillibrand</a>
+                <br>
+                <a class="desc">universal healthcare • decriminalize immigration</a>
+            </div>
+            <div class="candidate-card democratic">
+                <img class="candidate-image">
+                <a class="c-name">Kamala Harris</a>
+                <br>
+                <a class="desc">universal healthcare • decriminalize immigration</a>
             </div>
         </div>
     </div>
