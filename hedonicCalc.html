@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <title>Example Title</title>
+    <meta name="author" content="Dallas Crenshaw">
+    <meta name="description" content="Example description">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="">
+    <link rel="icon" type="image/x-icon" href="" />
+    <style>
+        html, body {
+            padding: 0;
+            margin: 0;
+            min-width: 100%;
+        }
+        body {
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            max-height: 100vh;
+        }
+        header {
+            box-sizing: border-box;
+            padding: 30px;
+            font-family: sans-serif;
+            font-weight: 700;
+            font-size: 50px;
+            width: 100%;
+            background: #6689F9;
+            color: white;
+            text-align: center;
+            flex-grow: 0;
+            flex-shrink: 0;
+        }
+        main {
+            display: flex;
+            flex-direction: column;
+            overflow-y: scroll;
+            justify-content: space-evenly;
+            align-items: center;
+            flex-grow: 1;
+            flex-shrink: 0;
+        }
+        .input-area {
+            width: 80%;
+            display: flex;
+            height: 100px;
+            border-radius: 20px;
+            box-sizing: border-box;
+            box-shadow: 0 0 5px rgba(0,0,0,0.3);
+            align-items: center;
+        }
+        .input-area a {
+            font-family: sans-serif;
+            font-size: 50px;
+            color: #141419;
+            flex-grow: 0;
+            margin-left: 20px;
+            min-width: 85px;
+            overflow: hidden;
+        }
+        .slider-container {
+            flex-grow: 1;
+            width: 100%;
+        }
+        input {
+            width: 90%;
+            -webkit-appearance: none;
+            appearance: none;
+            background: lightgray;
+            height: 4px;
+            
+        }
+        input::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 100%;
+            background: gray;
+        }
+        footer {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            flex-grow: 0;
+            box-sizing: border-box;
+            padding-bottom: 15px;
+        }
+        .button {
+            height: 90px;
+            width: 90px;
+            border-radius: 100%;
+            box-shadow: 0 0 5px rgba(0,0,0,0.3);
+            position: relative;
+            cursor: pointer;
+            margin: 0 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .button a {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: #a5c2f2;
+            border-radius: 7px;
+        }
+        .button a:nth-child(1) {
+            height: 70px;
+            width: 10px;
+        }
+        .button a:nth-child(2) {
+            height: 10px;
+            width: 70px;
+        }
+        .button img {
+            height: 65%;
+        }
+        modal {
+            display: block;
+            display: none;
+            height: 100vh;
+            width: 100vw;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background: rgba(0,0,0,0.3);
+        }
+        modal div {
+            height: 
+        }
+    </style>
+</head>
+
+<body>
+    <modal>
+    </modal>
+    <header>Hedonic Calculator</header>
+    <main id="main">
+        <div class="input-area">
+            <a contenteditable="true">1</a>
+            <div class="slider-container">
+                <input type="range" min="1" max="100" value="50" class="slider">
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div class="button" id="adder">
+            <a></a>
+            <a></a>
+        </div>
+        <div class="button">
+            <img src="6c35e17950c30af1bd60f6aeb40e705f-calculator-stroke-school-icon-by-vexels.png">
+        </div>
+    </footer>
+    <script type="text/javascript">
+        
+        function addSlider() {
+            var a = document.createElement("DIV");
+            a.classList.add("input-area");
+            var b = document.createElement("a");
+            b.setAttribute("contenteditable", "true");
+            b.appendChild(document.createTextNode("1"));
+            a.appendChild(b);
+            var c = document.createElement("DIV");
+            c.classList.add("slider-container");
+            var d = document.createElement("input");
+            d.setAttribute("type", "range");
+            d.setAttribute("min", "1");
+            d.setAttribute("max", "100");
+            d.setAttribute("value", "50");
+            d.classList.add("slider");
+            c.appendChild(d);
+            a.appendChild(c);
+            document.getElementById("main").appendChild(a);
+        }
+        
+        document.getElementById("adder").addEventListener("click", addSlider);
+    </script>
+</body>
+
+</html>
