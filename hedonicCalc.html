@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="">
+<html lang="en-us">
 
 <head>
     <meta charset="utf-8">
@@ -40,18 +40,20 @@
             overflow-y: scroll;
             justify-content: space-evenly;
             align-items: center;
-            flex-grow: 1;
-            flex-shrink: 0;
+            flex: 1;
         }
         .input-area {
             width: 80%;
             display: flex;
             height: 100px;
+            min-height: 100px;
             border-radius: 20px;
             box-sizing: border-box;
             box-shadow: 0 0 5px rgba(0,0,0,0.3);
             align-items: center;
+            margin: 30px 0;
         }
+        
         .input-area a {
             font-family: sans-serif;
             font-size: 50px;
@@ -122,7 +124,6 @@
             height: 65%;
         }
         modal {
-            display: block;
             display: none;
             height: 100vh;
             width: 100vw;
@@ -130,22 +131,45 @@
             top: 0;
             left: 0;
             background: rgba(0,0,0,0.3);
+            justify-content: center;
+            align-items: center;
+            font-family: sans-serif;
         }
         modal div {
-            height: 
+            height: 60%;
+            width: 400px;
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: white;
+            border-radius: 20px;
+            color: #191924;
+        }
+        modal div a {
+            width: 80%;
+            text-align: center;
         }
     </style>
 </head>
 
 <body>
-    <modal>
+    <modal id="modal">
+        <div id="modal-moral">
+            <h1 style="color: lawngreen;">MORAL</h1>
+            <a>Congratulations! Your moral dilemma is solved. You must go forth and spread the joyousness of being moral. Huzzah!</a>
+        </div>
+        <div id="modal-immoral">
+            <h1 style="color: orangered;">IMMORAL</h1>
+            <a>By Zeus! You have been caught contemplating immoral acts. This website is now morally required to self-detonate within the next 5 billion years.</a>
+        </div>
     </modal>
     <header>Hedonic Calculator</header>
     <main id="main">
-        <div class="input-area">
-            <a contenteditable="true">1</a>
+        <div class="input-area" id="container0">
+            <a contenteditable="true" id="personCounter0">1</a>
             <div class="slider-container">
-                <input type="range" min="1" max="100" value="50" class="slider">
+                <input type="range" min="1" max="100" value="50" class="slider" id="inputRange0">
             </div>
         </div>
     </main>
@@ -154,18 +178,22 @@
             <a></a>
             <a></a>
         </div>
-        <div class="button">
+        <div class="button" id="calcButton">
             <img src="6c35e17950c30af1bd60f6aeb40e705f-calculator-stroke-school-icon-by-vexels.png">
         </div>
     </footer>
     <script type="text/javascript">
         
+        var currentGroupMarker = 1;
+        
         function addSlider() {
             var a = document.createElement("DIV");
             a.classList.add("input-area");
+            a.id = "container" + currentGroupMarker;
             var b = document.createElement("a");
             b.setAttribute("contenteditable", "true");
             b.appendChild(document.createTextNode("1"));
+            b.id = "personCounter" + currentGroupMarker;
             a.appendChild(b);
             var c = document.createElement("DIV");
             c.classList.add("slider-container");
@@ -175,12 +203,28 @@
             d.setAttribute("max", "100");
             d.setAttribute("value", "50");
             d.classList.add("slider");
+            d.id = "inputRange" + currentGroupMarker;
             c.appendChild(d);
             a.appendChild(c);
             document.getElementById("main").appendChild(a);
+            currentGroupMarker++;
+        }
+        
+        function calculateMorality() {
+            var total = 0;
+            for (var i = 0; i < currentGroupMarker; i++) {
+                total += parseInt(document.getElementById('personCounter' + i).textContent) * (document.getElementById("inputRange" + i).value - 50);
+            }
+            return total;
+        }
+        
+        function displayMorality() {
+            document.getElementById("modal").style.display = "flex";
+            document.getElementById(calculateMorality() > 0 ? "modal-moral" : "modal-immoral").style.display = "flex";
         }
         
         document.getElementById("adder").addEventListener("click", addSlider);
+        document.getElementById("calcButton").addEventListener("click", displayMorality);
     </script>
 </body>
 
