@@ -10,17 +10,20 @@
     <link rel="stylesheet" href="">
     <link rel="icon" type="image/x-icon" href="" />
     <style>
-        html, body {
+        html,
+        body {
             padding: 0;
             margin: 0;
             min-width: 100%;
         }
+
         body {
             display: flex;
             flex-direction: column;
             height: 100vh;
             max-height: 100vh;
         }
+
         header {
             box-sizing: border-box;
             padding: 30px;
@@ -34,6 +37,7 @@
             flex-grow: 0;
             flex-shrink: 0;
         }
+
         main {
             display: flex;
             flex-direction: column;
@@ -42,6 +46,7 @@
             align-items: center;
             flex: 1;
         }
+
         .input-area {
             width: 80%;
             display: flex;
@@ -49,11 +54,11 @@
             min-height: 100px;
             border-radius: 20px;
             box-sizing: border-box;
-            box-shadow: 0 0 5px rgba(0,0,0,0.3);
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
             align-items: center;
             margin: 30px 0;
         }
-        
+
         .input-area a {
             font-family: sans-serif;
             font-size: 50px;
@@ -63,18 +68,21 @@
             min-width: 85px;
             overflow: hidden;
         }
+
         .slider-container {
             flex-grow: 1;
             width: 100%;
         }
+
         input {
             width: 90%;
             -webkit-appearance: none;
             appearance: none;
             background: lightgray;
             height: 4px;
-            
+
         }
+
         input::-webkit-slider-thumb {
             -webkit-appearance: none;
             appearance: none;
@@ -83,6 +91,7 @@
             border-radius: 100%;
             background: gray;
         }
+
         footer {
             display: flex;
             justify-content: center;
@@ -92,11 +101,12 @@
             box-sizing: border-box;
             padding-bottom: 15px;
         }
+
         .button {
             height: 90px;
             width: 90px;
             border-radius: 100%;
-            box-shadow: 0 0 5px rgba(0,0,0,0.3);
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
             position: relative;
             cursor: pointer;
             margin: 0 20px;
@@ -105,37 +115,75 @@
             justify-content: center;
             z-index: 1;
         }
+
         .button div {
-            height: 70%;
-            width: 70%;
+            height: 60%;
+            width: 60%;
             border-radius: 10px;
             border: 4px solid #C7AF6B;
             display: flex;
             flex-direction: column;
         }
+
         .button div div {
             width: 100%;
             height: 100%;
+            border: none;
             border-bottom: 4px solid #C7AF6B;
             display: flex;
+            flex-direction: row;
+            position: relative;
+            border-radius: 0;
         }
+
+        .button div div #wide {
+            width: 17.5px;
+            height: 25%;
+            border-top: 3.75px solid #C7AF6B;
+            border-bottom: 3.75px solid #C7AF6B;
+            border-radius: 0;
+            background: none;
+        }
+
+        .button div div div {
+            border: none;
+        }
+
+        .button div div div:first-child {
+            border-right: 4px solid #C7AF6B;
+        }
+
+        .button div div div .tall {
+            width: 15%;
+            height: 70%;
+        }
+
+        .button div div div .wide {
+            width: 70%;
+            height: 15%;
+        }
+
         .button div div:last-child {
             border-bottom: none;
             justify-content: center;
             align-items: center;
             flex-direction: column;
         }
+
         .button div div a {
             background: #C7AF6B;
         }
+
         .tall {
             width: 8px;
             height: 30px;
         }
+
         .wide {
             width: 30px;
             height: 8px;
         }
+
         .button a {
             position: absolute;
             top: 50%;
@@ -144,17 +192,21 @@
             background: #C7AF6B;
             border-radius: 7px;
         }
+
         .button a:nth-child(1) {
             height: 70px;
             width: 10px;
         }
+
         .button a:nth-child(2) {
             height: 10px;
             width: 70px;
         }
+
         .button img {
             height: 65%;
         }
+
         modal {
             display: none;
             height: 100vh;
@@ -162,12 +214,13 @@
             position: fixed;
             top: 0;
             left: 0;
-            background: rgba(0,0,0,0.3);
+            background: rgba(0, 0, 0, 0.3);
             justify-content: center;
             align-items: center;
             font-family: sans-serif;
             z-index: 3;
         }
+
         modal div {
             height: 60%;
             width: 400px;
@@ -179,6 +232,7 @@
             border-radius: 20px;
             color: #191924;
         }
+
         modal div a {
             width: 80%;
             text-align: center;
@@ -215,22 +269,22 @@
             <div>
                 <div>
                     <div>
-                        <a class="wide" style="position: absolute;top:50%;left:50%;transform:translate(-50%,-50%)";></a>
+                        <a class="wide" style="position: absolute;top:50%;left:50%;transform:translate(-50%,-50%)" ;></a>
                         <a class="tall" style="position: absolute;top:50%;left:50%;transform:translate(-50%,-50%);"></a>
                     </div>
-                    <div><a class="wide"></a></div>
+                    <div>
+                        <a class="wide"></a>
+                    </div>
                 </div>
                 <div>
-                    <a class="wide"></a>
-                    <a class="wide"></a>
+                    <a id="wide"></a>
                 </div>
             </div>
         </div>
     </footer>
     <script type="text/javascript">
-        
         var currentGroupMarker = 1;
-        
+
         function addSlider() {
             var a = document.createElement("DIV");
             a.classList.add("input-area");
@@ -254,7 +308,7 @@
             document.getElementById("main").appendChild(a);
             currentGroupMarker++;
         }
-        
+
         function calculateMorality() {
             var total = 0;
             for (var i = 0; i < currentGroupMarker; i++) {
@@ -262,18 +316,18 @@
             }
             return total;
         }
-        
+
         function displayMorality() {
             document.getElementById("modal").style.display = "flex";
             document.getElementById(calculateMorality() > 0 ? "modal-moral" : "modal-immoral").style.display = "flex";
         }
-        
+
         function closeModals() {
             document.getElementById("modal").style.display = "none";
             document.getElementById("modal-moral").style.display = "none";
             document.getElementById("modal-immoral").style.display = "none";
         }
-        
+
         document.getElementById("modal").addEventListener("click", closeModals);
         document.getElementById("adder").addEventListener("click", addSlider);
         document.getElementById("calcButton").addEventListener("click", displayMorality);
