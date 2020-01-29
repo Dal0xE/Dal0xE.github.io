@@ -105,6 +105,37 @@
             justify-content: center;
             z-index: 1;
         }
+        .button div {
+            height: 70%;
+            width: 70%;
+            border-radius: 10px;
+            border: 4px solid #C7AF6B;
+            display: flex;
+            flex-direction: column;
+        }
+        .button div div {
+            width: 100%;
+            height: 100%;
+            border-bottom: 4px solid #C7AF6B;
+            display: flex;
+        }
+        .button div div:last-child {
+            border-bottom: none;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        .button div div a {
+            background: #C7AF6B;
+        }
+        .tall {
+            width: 8px;
+            height: 30px;
+        }
+        .wide {
+            width: 30px;
+            height: 8px;
+        }
         .button a {
             position: absolute;
             top: 50%;
@@ -181,7 +212,19 @@
             <a></a>
         </div>
         <div class="button" id="calcButton">
-            <img src="6c35e17950c30af1bd60f6aeb40e705f-calculator-stroke-school-icon-by-vexels.png">
+            <div>
+                <div>
+                    <div>
+                        <a class="wide" style="position: absolute;top:50%;left:50%;transform:translate(-50%,-50%)";></a>
+                        <a class="tall" style="position: absolute;top:50%;left:50%;transform:translate(-50%,-50%);"></a>
+                    </div>
+                    <div><a class="wide"></a></div>
+                </div>
+                <div>
+                    <a class="wide"></a>
+                    <a class="wide"></a>
+                </div>
+            </div>
         </div>
     </footer>
     <script type="text/javascript">
