@@ -103,6 +103,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            z-index: 1;
         }
         .button a {
             position: absolute;
@@ -134,6 +135,7 @@
             justify-content: center;
             align-items: center;
             font-family: sans-serif;
+            z-index: 3;
         }
         modal div {
             height: 60%;
@@ -223,6 +225,13 @@
             document.getElementById(calculateMorality() > 0 ? "modal-moral" : "modal-immoral").style.display = "flex";
         }
         
+        function closeModals() {
+            document.getElementById("modal").style.display = "none";
+            document.getElementById("modal-moral").style.display = "none";
+            document.getElementById("modal-immoral").style.display = "none";
+        }
+        
+        document.getElementById("modal").addEventListener("click", closeModals);
         document.getElementById("adder").addEventListener("click", addSlider);
         document.getElementById("calcButton").addEventListener("click", displayMorality);
     </script>
