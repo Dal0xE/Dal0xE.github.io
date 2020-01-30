@@ -284,6 +284,13 @@
     </footer>
     <script type="text/javascript">
         var currentGroupMarker = 1;
+        var sheet = document.head.appendChild(document.createElement("style")).sheet;
+        
+        function insertRule(selector, rule) {
+            var propText = typeof css === "string" ? css : Object.keys(css).map(function (p) {
+            return p + ":" + (p === "content" ? "'" + css[p] + "'" : css[p]);}).join(";");
+            sheet.insertRule(selector + "{" + propText + "}", sheet.cssRules.length);
+        }
 
         function addSlider() {
             var a = document.createElement("DIV");
@@ -315,6 +322,10 @@
                 total += parseInt(document.getElementById('personCounter' + i).textContent) * (document.getElementById("inputRange" + i).value - 50);
             }
             return total;
+        }
+        
+        function steppedInterpolate(southExtreme, portion, northExtreme) {
+            return southExtreme + portion * (northExtreme - southExtreme);
         }
 
         function displayMorality() {
