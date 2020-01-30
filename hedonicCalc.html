@@ -326,6 +326,9 @@
             d.setAttribute("value", "50");
             d.classList.add("slider");
             d.id = "inputRange" + currentGroupMarker;
+            d.oninput = function() {
+                updateColor(this, this.value);
+            };
             c.appendChild(d);
             a.appendChild(c);
             document.getElementById("main").appendChild(a);
