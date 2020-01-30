@@ -285,11 +285,27 @@
     <script type="text/javascript">
         var currentGroupMarker = 1;
         var sheet = document.head.appendChild(document.createElement("style")).sheet;
+        const red = [235, 64, 52];
+        const yellow = [235, 213, 52];
+        const green = [116, 235, 52];
         
         function insertRule(selector, rule) {
             var propText = typeof css === "string" ? css : Object.keys(css).map(function (p) {
             return p + ":" + (p === "content" ? "'" + css[p] + "'" : css[p]);}).join(";");
             sheet.insertRule(selector + "{" + propText + "}", sheet.cssRules.length);
+        }
+        
+        function updateColor(slider, val) {
+            if (val > 50) {
+                insertRule("#" + slider.id + ":-webkit-slider-thumb", {
+                    background: "rgb(" + [steppedInterpolate(yellow[0], (val - 50) / 50, green[0]), steppedInterpolate(yellow[1], (val - 50) / 50, green[1]), steppedInterpolate(yellow[2], (val - 50) / 50, green[2])].join(",") + ")";
+                });
+            }
+            else {
+                insertRule("#" + slider.id + ":-webkit-slider-thumb", {
+                    background: "rgb(" + [steppedInterpolate(yellow[0], (val - 50) / 50, red[0]), steppedInterpolate(yellow[1], (val - 50) / 50, red[1]), steppedInterpolate(yellow[2], (val - 50) / 50, red[2])].join(",") + ")";
+                });
+            }
         }
 
         function addSlider() {
